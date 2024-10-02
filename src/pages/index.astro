@@ -44,7 +44,6 @@ const projects: CollectionEntry<"projects">[] = (
             </span>
           </article>
         </section>
-
         <section class="animate space-y-4">
           <h2 class="font-semibold text-black dark:text-white">
             連絡先 Contacts
@@ -70,23 +69,18 @@ const projects: CollectionEntry<"projects">[] = (
               ))
             }
             {/* TODO: メール連絡先 */}
-            {/* 
             <li class="line-clamp-1">
-              <Link
-                href={`mailto:${SITE.EMAIL}`}
-                aria-label={`Email ${SITE.TITLE}`}
-              >
-                {SITE.EMAIL}
-              </Link>
+              <span>
+                Discord @harumaki021
+              </span>
             </li>
-            */}
           </ul>
         </section>
 
         <section class="animate space-y-6">
           <div class="flex flex-wrap items-center justify-between gap-y-2">
             <h2 class="font-semibold text-black dark:text-white">
-              Latest posts
+              ブログ最新記事
             </h2>
             <Link href="/blog"> See all posts </Link>
           </div>
@@ -104,7 +98,7 @@ const projects: CollectionEntry<"projects">[] = (
         <section class="animate space-y-6">
           <div class="flex flex-wrap items-center justify-between gap-y-2">
             <h2 class="font-semibold text-black dark:text-white">
-              Recent projects
+              いろんなもの置き場
             </h2>
             <Link href="/projects"> See all projects </Link>
           </div>
@@ -118,6 +112,29 @@ const projects: CollectionEntry<"projects">[] = (
             }
           </ul>
         </section>
+
+        <section class="animate space-y-6">
+          <div class="flex flex-wrap items-center justify-between gap-y-2">
+            <h2 class="font-semibold text-black dark:text-white">
+              Misskeyのつぶやきを見てみる
+              <!-- Misskeyを覗き見ぃ……w -->
+            </h2>
+            <Link href="https://mi.harumakizaemon.net/@harumaki021">もっと見る</Link>
+            <iframe title="harumaki021's misskey" src="https://mi.harumakizaemon.net/embed/user-timeline/995p9oamhv?maxHeight=400&rounded=false" data-misskey-embed-id="v1_47c6f150-6c38-4a70-bce3-009c9210f2c3" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" style="border: none; width: 100%; max-width: 700px; height: 300px; color-scheme: light dark;"></iframe>
+            <script defer src="https://mi.harumakizaemon.net/embed.js"></script>
+          </div>
+          <article class="space-y-4">
+            <span>
+              <p>
+                自分でつぶやくために運営しているMisskeyサーバーがあります。
+              </p>
+              <p>
+                MastodonやPleromaなどのアカウントからフォローすることができます。よろしくね
+              </p>
+            </span>
+          </article>
+        </section>
+        
       </div>
     </aside>
   </Container>
