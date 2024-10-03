@@ -24,22 +24,17 @@ const projects: CollectionEntry<"projects">[] = (
   <Container>
     <aside data-pagefind-ignore>
       <h1 class="font-semibold text-black dark:text-white">
-        harumakizaemon.net 🐇
+        はるまきざえもんどっとねっと 🐇
       </h1>
       <div class="space-y-16">
         <section>
           <article class="space-y-4">
-            <span>
-              <p>
-                harumakizaemon.netへようこそ
-              </p>
-            </span>
             <span class="animate">
               <p>
-                ハルマキ左衛門 a.k.a. harumaki021
+                ブログとなにかしらの文章等のコンテンツを置く場所です。
               </p>
               <p>
-                ブログとなにかしらの文章等のコンテンツを置く場所です。
+                author: ハルマキ左衛門 a.k.a. harumaki021
               </p>
             </span>
           </article>
@@ -50,7 +45,7 @@ const projects: CollectionEntry<"projects">[] = (
           </h2>
           <article>
             <p>
-              何かありましたらMisskeyへリプライを送るか、以下の連絡先までどうぞ。
+              何かありましたら以下の連絡先までどうぞ。MisskeyとDiscordが反応しやすいです。
             </p>
           </article>
           <ul class="not-prose flex flex-wrap gap-2">
@@ -69,18 +64,26 @@ const projects: CollectionEntry<"projects">[] = (
               ))
             }
             {/* TODO: メール連絡先 */}
-            <li class="line-clamp-1">
+            <li>
               <span>
-                Discord @harumaki021
+                Discord
+              </span>
+              <span class="font-mono">
+                @harumaki021
               </span>
             </li>
           </ul>
+          <span class="flex">
+            <p class="text-xs text-gray-300 dark:text-gray-600">
+              NOTE: Please don't send messages with JUST “Hi” or “Hello.” Let me know your question or request right from the start. 🐰
+            </p>
+          </span>
         </section>
 
         <section class="animate space-y-6">
           <div class="flex flex-wrap items-center justify-between gap-y-2">
             <h2 class="font-semibold text-black dark:text-white">
-              ブログ最新記事
+              ブログ blog
             </h2>
             <Link href="/blog"> もっと見る </Link>
           </div>
@@ -98,7 +101,7 @@ const projects: CollectionEntry<"projects">[] = (
         <section class="animate space-y-6">
           <div class="flex flex-wrap items-center justify-between gap-y-2">
             <h2 class="font-semibold text-black dark:text-white">
-              いろんなもの置き場
+              いろんなもの置き場 projects
             </h2>
             <Link href="/projects"> もっと見る </Link>
           </div>
@@ -113,21 +116,32 @@ const projects: CollectionEntry<"projects">[] = (
           </ul>
         </section>
 
-        <section class="animate space-y-6">
+        <section class="animate">
           <div class="flex flex-wrap items-center justify-between gap-y-2">
             <h2 class="font-semibold text-black dark:text-white">
-              Misskeyのつぶやきを見てみる
+              つぶやきを見てみる misskey
               <!-- Misskeyを覗き見ぃ……w -->
             </h2>
             <Link href="https://mi.harumakizaemon.net/@harumaki021"> もっと見る</Link>
-            <iframe title="harumaki021's misskey" src="https://mi.harumakizaemon.net/embed/user-timeline/995p9oamhv?maxHeight=400&rounded=false" data-misskey-embed-id="v1_47c6f150-6c38-4a70-bce3-009c9210f2c3" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" style="border: none; width: 100%; max-width: 700px; height: 300px; color-scheme: light dark;"></iframe>
-            <script defer src="https://mi.harumakizaemon.net/embed.js"></script>
           </div>
-          <article class="space-y-4">
+          <article class="not-prose flex flex-col gap-4">
+            <div>
+              <span class="text-sm text-gray-500 dark:text-gray-500">
+                mi.harumakizaemon.net
+              </span>
+                <iframe title="harumaki021's Misskey" src="https://mi.harumakizaemon.net/embed/user-timeline/995p9oamhv?maxHeight=500&rounded=false" data-misskey-embed-id="v1_47c6f150-6c38-4a70-bce3-009c9210f2c3" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" style="border: none; width: 100%; max-width: 700px; height: 500px; color-scheme: light dark;"></iframe>
+                <script defer src="https://mi.harumakizaemon.net/embed.js"></script>
+            </div>
+            <div class="text-sm text-gray-500 dark:text-gray-500" >
+              <span>
+                #LOVOT
+              </span>
+              <iframe src="https://mi.harumakizaemon.net/embed/tags/LOVOT?maxHeight=500&rounded=false" data-misskey-embed-id="v1_001280a4-00f1-4398-b0db-cb3516d002e8" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" style="border: none; width: 100%; max-width: 500px; height: 500px; color-scheme: light dark;"></iframe>
+              <script defer src="https://mi.harumakizaemon.net/embed.js"></script>
+            </div>
             <span>
               <p>
-                自分ひとりでつぶやくために運営しているMisskeyサーバーがあります。
-                Misskeyでなくても、MastodonやPleromaなどのアカウントからフォローすることができます。よろしくね
+                自分ひとりでつぶやくために運営しているMisskeyサーバーがあります。Misskeyでなくても、MastodonやPleromaなどのアカウントからフォローできます。好きなサーバーにアカウントを作って、ぜひリモートフォローしてください。
               </p>
             </span>
           </article>
