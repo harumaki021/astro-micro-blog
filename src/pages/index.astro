@@ -6,6 +6,7 @@ import ArrowCard from "@components/ArrowCard.astro";
 import Link from "@components/Link.astro";
 import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
+import MisskeyUserTimeline from "@components/MisskeyUserTimeline.astro";
 
 const blog = (await getCollection("blog"))
   .filter((post) => !post.data.draft)
@@ -129,8 +130,7 @@ const projects: CollectionEntry<"projects">[] = (
               <span class="text-sm text-gray-500 dark:text-gray-500">
                 mi.harumakizaemon.net
               </span>
-                <iframe title="harumaki021's Misskey" src="https://mi.harumakizaemon.net/embed/user-timeline/995p9oamhv?maxHeight=500&rounded=false" data-misskey-embed-id="v1_47c6f150-6c38-4a70-bce3-009c9210f2c3" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" style="border: none; width: 100%; max-width: 700px; height: 500px; color-scheme: light dark;"></iframe>
-                <script defer src="https://mi.harumakizaemon.net/embed.js"></script>
+              <MisskeyUserTimeline />
             </div>
             <div class="text-sm text-gray-500 dark:text-gray-500" >
               <span>

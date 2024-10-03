@@ -8,6 +8,7 @@ import BackToPrevious from "@components/BackToPrevious.astro";
 import PostNavigation from "@components/PostNavigation.astro";
 import TableOfContents from "@components/TableOfContents.astro";
 import Giscus from "@components/Giscus.astro";
+import MisskeyUserTimeline from "@components/MisskeyUserTimeline.astro";
 
 export async function getStaticPaths() {
   const posts = (await getCollection("blog"))
