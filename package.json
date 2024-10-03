@@ -18,6 +18,8 @@
     "@fontsource-variable/m-plus-1-code": "^5.1.0",
     "@fontsource/geist-mono": "^5.1.0",
     "@fontsource/geist-sans": "^5.1.0",
+    "@fontsource/m-plus-1p": "^5.1.0",
+    "@fontsource/noto-color-emoji": "^5.1.0",
     "astro": "^4.15.8",
     "astro-pagefind": "^1.6.0",
     "clsx": "^2.1.1",

@@ -6,8 +6,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Geist Sans", ...defaultTheme.fontFamily.sans],
-        mono: ["Geist Mono", ...defaultTheme.fontFamily.mono],
+        sans: ["M PLUS 1p" ,"Noto Color emoji", ...defaultTheme.fontFamily.sans],
+        mono: ["M PLUS 1 Code","Noto Color emoji", ...defaultTheme.fontFamily.mono],
       },
     },
   },
