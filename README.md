@@ -8,6 +8,7 @@ harumakizaemon.netのソースコードです。
 TODO: 
   - microCMS
   - 絵文字を明示的にtwemojiにする
+  - light/dark theme: embed misskey
   - Footer
     - share to Mastodon / Misskey / Preloma / twitter
     - Giscuss 要検討
