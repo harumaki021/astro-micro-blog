@@ -6,6 +6,8 @@ import ArrowCard from "@components/ArrowCard.astro";
 import Link from "@components/Link.astro";
 import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
+import MisskeyUserTimeline from "@components/MisskeyUserTimeline.astro";
+import MisskeyHashtag from "@components/MisskeyHashtag.astro";
 
 const blog = (await getCollection("blog"))
   .filter((post) => !post.data.draft)
@@ -81,7 +83,7 @@ const projects: CollectionEntry<"projects">[] = (
         </section>
 
         <section class="animate space-y-6">
-          <div class="flex flex-wrap items-center justify-between gap-y-2">
+          <div class="flex flex-wrap items-center justify-between">
             <h2 class="font-semibold text-black dark:text-white">
               ブログ blog
             </h2>
@@ -116,7 +118,7 @@ const projects: CollectionEntry<"projects">[] = (
           </ul>
         </section>
 
-        <section class="animate">
+        <section class="animate space-y-6">
           <div class="flex flex-wrap items-center justify-between gap-y-2">
             <h2 class="font-semibold text-black dark:text-white">
               つぶやきを見てみる misskey
@@ -124,29 +126,18 @@ const projects: CollectionEntry<"projects">[] = (
             </h2>
             <Link href="https://mi.harumakizaemon.net/@harumaki021"> もっと見る</Link>
           </div>
-          <article class="not-prose flex flex-col gap-4">
-            <div>
-              <span class="text-sm text-gray-500 dark:text-gray-500">
-                mi.harumakizaemon.net
-              </span>
-                <iframe title="harumaki021's Misskey" src="https://mi.harumakizaemon.net/embed/user-timeline/995p9oamhv?maxHeight=500&rounded=false" data-misskey-embed-id="v1_47c6f150-6c38-4a70-bce3-009c9210f2c3" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" style="border: none; width: 100%; max-width: 700px; height: 500px; color-scheme: light dark;"></iframe>
-                <script defer src="https://mi.harumakizaemon.net/embed.js"></script>
+          <article>
+            <div class="flex flex-col items-center space-y-4">
+              <MisskeyUserTimeline />
+              <MisskeyHashtag />
             </div>
-            <div class="text-sm text-gray-500 dark:text-gray-500" >
               <span>
-                #LOVOT
+                <p>
+                  自分ひとりでつぶやくためにMisskeyサーバーを運営しています。Misskeyでなくても、MastodonやPleromaなどのアカウントからフォローできます。好きなサーバーにアカウントを作って、ぜひリモートフォローしてください。
+                </p>
               </span>
-              <iframe src="https://mi.harumakizaemon.net/embed/tags/LOVOT?maxHeight=500&rounded=false" data-misskey-embed-id="v1_001280a4-00f1-4398-b0db-cb3516d002e8" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" style="border: none; width: 100%; max-width: 500px; height: 500px; color-scheme: light dark;"></iframe>
-              <script defer src="https://mi.harumakizaemon.net/embed.js"></script>
-            </div>
-            <span>
-              <p>
-                自分ひとりでつぶやくために運営しているMisskeyサーバーがあります。Misskeyでなくても、MastodonやPleromaなどのアカウントからフォローできます。好きなサーバーにアカウントを作って、ぜひリモートフォローしてください。
-              </p>
-            </span>
           </article>
         </section>
-
       </div>
     </aside>
   </Container>
