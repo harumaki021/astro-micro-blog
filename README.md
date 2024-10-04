@@ -11,4 +11,4 @@ TODO:
   - light/dark theme: embed misskey
   - Footer
     - share to Mastodon / Misskey / Preloma / twitter
-    - Giscuss 要検討
+    - Giscus 要検討
