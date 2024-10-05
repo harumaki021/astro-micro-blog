@@ -1,7 +1,7 @@
 # About this repo
 
 harumakizaemon.netのソースコードです。
-テンプレートは[Astro Micro](https://astro-micro.vercel.app/)を使用しています。
+テンプレートは[Astro Micro](https://github.com/trevortylerlee/astro-micro)を使用しています。
 
 ---
 
@@ -11,4 +11,4 @@ TODO:
   - light/dark theme: embed misskey
   - Footer
     - share to Mastodon / Misskey / Preloma / twitter
-    - Giscuss 要検討
+    - Giscus 要検討
