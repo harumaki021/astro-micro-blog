@@ -35,18 +35,9 @@ const interests = ["VR", "XR", "Tech", "音ゲー", "初音ミク", "うさぎ"]
           <article class="space-y-4">
             <span class="animate leading-7">
               <p>ブログとなにかしらの文章等のコンテンツを置く場所です。<br>
-                author: ハルマキ左衛門 a.k.a. harumaki021
+                author: <Link href="/about">ハルマキ左衛門 a.k.a. harumaki021</Link>
               </p>
             </span>
-            <ul class="not-prose flex flex-wrap gap-2">
-              {
-                interests.map((interest, index) => (
-                  <li>
-                    {interest} {index < interests.length - 1 && " |"}
-                  </li>
-                ))
-              }
-            </ul>
           </article>
         </section>
         <section class="animate space-y-4">
