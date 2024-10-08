@@ -50,7 +50,6 @@ const interests = ["VR", "XR", "Tech", "音ゲー", "初音ミク", "うさぎ"]
             </ul>
           </article>
         </section>
-
         <section class="animate space-y-4">
           <h2 class="font-semibold text-black dark:text-white">
             連絡先 Contacts
@@ -88,31 +87,6 @@ const interests = ["VR", "XR", "Tech", "音ゲー", "初音ミク", "うさぎ"]
             </p>
           </span>
         </section>
-
-        <section class="animate space-y-6">
-          <div class="flex flex-wrap items-center justify-between gap-y-2">
-            <h2 class="font-semibold text-black dark:text-white">
-              つぶやきを見てみる misskey
-              <!-- Misskeyを覗き見ぃ……w -->
-            </h2>
-            <Link href="https://mi.harumakizaemon.net/@harumaki021">
-             ===> もっと見る
-            </Link>
-          </div>
-          <article>
-            <div class="flex flex-col items-center space-y-4">
-              <MisskeyUserTimeline />
-              <MisskeyHashtag />
-            </div>
-            <span>
-              <p>
-                自分ひとりでつぶやくためにMisskeyサーバーを運営しています。<br>
-                Misskeyでなくても、MastodonやPleromaなどのアカウントからフォローできます。好きなサーバーにアカウントを作って、ぜひリモートフォローしてください。
-              </p>
-            </span>
-          </article>
-        </section>
-
         <section class="animate space-y-6">
           <div class="flex flex-wrap items-center justify-between">
             <h2 class="font-semibold text-black dark:text-white">
@@ -130,7 +104,6 @@ const interests = ["VR", "XR", "Tech", "音ゲー", "初音ミク", "うさぎ"]
             }
           </ul>
         </section>
-
         <section class="animate space-y-6">
           <div class="flex flex-wrap items-center justify-between gap-y-2">
             <h2 class="font-semibold text-black dark:text-white">
@@ -147,6 +120,31 @@ const interests = ["VR", "XR", "Tech", "音ゲー", "初音ミク", "うさぎ"]
               ))
             }
           </ul>
+        </section>
+        <section class="animate space-y-6">
+          <div class="flex flex-wrap items-center justify-between gap-y-6">
+            <h2 class="font-semibold text-black dark:text-white">
+              つぶやきを見てみる misskey
+              <!-- Misskeyを覗き見ぃ……w -->
+            </h2>
+            <Link href="https://mi.harumakizaemon.net/@harumaki021">
+             ===> もっと見る
+            </Link>
+            <span class="">
+              <p>
+                自分ひとりでつぶやくためにMisskeyサーバーを運営しています。
+              </p>
+              <p>
+                Misskeyでなくても、MastodonやPleromaなどのアカウントからフォローできます。好きなサーバーにアカウントを作って、ぜひリモートフォローしてください。
+              </p>
+            </span>
+          </div>
+          <article>
+            <div class="flex flex-col items-center space-y-4">
+              <MisskeyUserTimeline client:idle />
+              <MisskeyHashtag client:idle />
+            </div>
+          </article>
         </section>
       </div>
     </aside>
