@@ -7,7 +7,7 @@ export default {
     extend: {
       fontFamily: {
         sans: ["M PLUS 1p" ,"Noto Color emoji", ...defaultTheme.fontFamily.sans],
-        mono: ["M PLUS 1 Code","Noto Color emoji", ...defaultTheme.fontFamily.mono],
+        mono: ["Noto Color emoji", ...defaultTheme.fontFamily.mono],
       },
     },
   },
