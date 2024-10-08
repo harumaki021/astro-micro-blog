@@ -41,7 +41,7 @@ const interests = ["VR", "XR", "Tech", "音ゲー", "初音ミク", "うさぎ"]
             <ul class="not-prose flex flex-wrap gap-2">
               {
                 interests.map((interest, index) => (
-                  <li key={index}>
+                  <li>
                     {interest} {index < interests.length - 1 && " |"}
                   </li>
                 ))
