@@ -63,6 +63,11 @@ export const SNSLINKS = [
     DESCRIPTION: "RePostばかりです",
   },
   {
+    NAME: "Github",
+    HREF: "https://github.com/harumaki021",
+    DESCRIPTION: "ソースコード共有サイト",
+  },
+  {
     NAME: "Instagram",
     HREF: "https://www.instagram.com/harumaki021",
     DESCRIPTION: "更新しません",
