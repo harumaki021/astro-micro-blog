@@ -27,7 +27,7 @@ export const PROJECTS: Metadata = {
 export const ABOUT: Metadata = {
   TITLE: "About",
   DESCRIPTION:
-    "harumaki021とはいったい何なのかの説明です",
+    "harumaki021の説明と、各種SNSへのリンクです",
 };
 
 export const SOCIALS: Socials = [
@@ -38,5 +38,43 @@ export const SOCIALS: Socials = [
   {
     NAME: "X (formerly Twitter)",
     HREF: "https://twitter.com/hrmkzaemon_vr",
+  },
+];
+
+export const SNSLINKS = [
+  {
+    NAME: "Misskey",
+    HREF: "https://mi.harumakizaemon.net/@harumaki021",
+    DESCRIPTION: "自分で運営しているMisskeyサーバー。メインで使っています",
+  },
+  {
+    NAME: "Misskey (Resonite.love)",
+    HREF: "https://misskey.resonite.love/@harumaki021",
+    DESCRIPTION: "Resonite関係の話題等",
+  },
+  {
+    NAME: "notestock",
+    HREF: "https://notestock.osa-p.net/@harumaki021@mi.harumakizaemon.net/view",
+    DESCRIPTION: "Misskeyの過去の投稿を記録してくれるサービス。大変お世話になってます",
+  },
+  {
+    NAME: "X (formerly Twitter)",
+    HREF: "https://twitter.com/hrmkzaemon_vr",
+    DESCRIPTION: "RePostばかりです",
+  },
+  {
+    NAME: "Instagram",
+    HREF: "https://www.instagram.com/harumaki021",
+    DESCRIPTION: "更新しません",
+  },
+  {
+    NAME: "Twitch",
+    HREF: "https://twitch.tv/harumaki021",
+    DESCRIPTION: "ゲームと運動する様を配信します。フォローして❤"
+  },
+  {
+    NAME: "YouTube",
+    HREF: " http://www.youtube.com/@harumaki-zaemon",
+    DESCRIPTION: "動画の置き場"
   },
 ];
