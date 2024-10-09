@@ -15,3 +15,9 @@ export type Socials = {
   NAME: string;
   HREF: string;
 }[];
+
+export type Snslinks = {
+  NAME: string;
+  HREF: string;
+  DESCRIPTION: string;
+}[];
