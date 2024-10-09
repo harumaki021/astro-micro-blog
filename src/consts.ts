@@ -2,7 +2,7 @@ import type { Metadata, Site, Snslinks, Socials } from "@types";
 
 export const SITE: Site = {
   TITLE: "harumakizaemon.net",
-  DESCRIPTION: "harumaki021のWebサイト",
+  DESCRIPTION: "はるまきざえもんどっとねっと",
   EMAIL: "test@example.com",
   NUM_POSTS_ON_HOMEPAGE: 5,
   NUM_PROJECTS_ON_HOMEPAGE: 3,
@@ -36,6 +36,10 @@ export const SOCIALS: Socials = [
     HREF: "https://mi.harumakizaemon.net/@harumaki021",
   },
   {
+    NAME: "Bluesky",
+    HREF: "https://bsky.app/profile/harumakizaemon.net",
+  },
+  {
     NAME: "X (formerly Twitter)",
     HREF: "https://twitter.com/hrmkzaemon_vr",
   },
@@ -56,6 +60,11 @@ export const SNSLINKS: Snslinks = [
     NAME: "notestock",
     HREF: "https://notestock.osa-p.net/@harumaki021@mi.harumakizaemon.net/view",
     DESCRIPTION: "Misskeyの過去の投稿を記録してくれるサービス。大変お世話になってます",
+  },
+  {
+    NAME: "Bluesky",
+    HREF: "https://bsky.app/profile/harumakizaemon.net",
+    DESCRIPTION: "主にLOVOTのことをつぶやきます",
   },
   {
     NAME: "X (formerly Twitter)",
