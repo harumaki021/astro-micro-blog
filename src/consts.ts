@@ -1,4 +1,4 @@
-import type { Metadata, Site, Socials } from "@types";
+import type { Metadata, Site, Snslinks, Socials } from "@types";
 
 export const SITE: Site = {
   TITLE: "harumakizaemon.net",
@@ -41,7 +41,7 @@ export const SOCIALS: Socials = [
   },
 ];
 
-export const SNSLINKS = [
+export const SNSLINKS: Snslinks = [
   {
     NAME: "Misskey",
     HREF: "https://mi.harumakizaemon.net/@harumaki021",
