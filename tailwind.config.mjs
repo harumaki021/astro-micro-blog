@@ -6,7 +6,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Hiragino Maru Gothic Pro","BIZ UDGothic","M PLUS 1p","HelveticaNeue","Noto Color emoji"],
+        sans: ["ヒラギノ丸ゴ ProN","Hiragino Maru Gothic ProN","Hiragino Kaku Gothic ProN","ヒラギノ角ゴ ProN W3","BIZ UDGothic","M PLUS 1p","Helvetica Neue","Noto Color emoji", ...defaultTheme.fontFamily.sans],
         mono: ["Noto Color emoji", ...defaultTheme.fontFamily.mono],
       },
     },
