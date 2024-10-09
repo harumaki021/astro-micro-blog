@@ -1,21 +1,26 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import Container from "@components/Container.astro";
+import Link from "@components/Link.astro";
 import { ABOUT } from "@consts";
-const interests = ["VR", "XR", "Tech", "音ゲー", "初音ミク", "うさぎ"];
+const interests = ["VR", "XR", "音ゲー", "初音ミク", "うさぎ"];
 ---
 
 <Layout title={ABOUT.TITLE} description={ABOUT.DESCRIPTION}>
   <Container>
-      <div class="animate space-y-8">
+      <div class="animate space-y-6">
+        <span class="space-y-4 leading-7">
         <h1 class="font-semibold text-black dark:text-white">
           About - harumaki021
         </h1>
-          <h2 class="font-light text-black dark:text-white">概要</h2>
+        <h2 class="font-light text-black dark:text-white">概要</h2>
           <p>
-            ここに概要がはいる
+            名前: ハルマキ左衛門 / はるまきざえもん / harumaki021
           </p>
-          <ul class="animate not-prose flex flex-wrap gap-x-2">
+          <p>
+            インターネット上にいる人間です。ゲームがすき。企業に雇われてインフラエンジニアをしています。
+          </p>
+          <ul class="not-prose flex flex-wrap gap-x-2">
             {
               interests.map((interest, index) => (
                 <li>
@@ -24,23 +29,27 @@ const interests = ["VR", "XR", "Tech", "音ゲー", "初音ミク", "うさぎ"]
               ))
             }
           </ul>
-          <h2 class="font-light text-black dark:text-white">AIにかいてもらった偽プロフィール</h2>
-          <h3 class=" text-black dark:text-white">叫ぶ</h3>
           <p>
-            私は、毎朝5時に起きて、空に向かって「おはよう！」と叫ぶのが日課です。近所の人たちは最初は驚いていましたが、今では私の元気な挨拶を楽しみにしているようです。朝の空気を吸い込みながら、世界中の鳥たちと心の中で会話をするのが私の秘密の楽しみです。
+            最近の趣味はもっぱらVRです。もしVRSNS上で会ったら仲良くしてやってください。
           </p>
-          <h3 class=" text-black dark:text-white">海賊王</h3>
-          <p>
-            私の家には、壁一面に描かれた巨大な地図があります。その地図には、私が夢の中で訪れた場所がすべて記されています。現実の地図とは少し違うかもしれませんが、私にとってはどれも大切な思い出です。毎晩、地図を見ながら新しい冒険の計画を立てるのが私の楽しみです。
+        </span>
+        </div>
+      <div class="animate space-y-6 mt-16">
+        <span class="space-y-4 leading-7">
+          <h2 class="font-light text-black dark:text-white ">harumakizaemon.netとはいったいなにか</h2>
+          <h3 class="text-black dark:text-white">サイト内のコンテンツについて</h3>
+          <p class="text-sm/7">
+            主に私の興味関心のあることを発信しています。各種サービスやメーカー公式とは一切関係がなく、非公式のものであることをご承知ください。
           </p>
-          <h3 class=" text-black dark:text-white">ぬ</h3>
-          <p>
-            月に一度、自分だけのファッションショーを開催します。テーマは毎回異なり、時には宇宙旅行、時には海底探検など、想像力を駆使して衣装を作ります。友人たちは私の奇抜なファッションセンスに驚きつつも、楽しんでくれます。私のファッションショーは、いつも笑いと驚きに満ちています。
+          <h3 class="text-black dark:text-white">免責事項</h3>
+          <p class="text-sm/7">
+            ブログのコメント欄は、Githubアカウントを使用する<Link href="https://giscus.app/ja">giscus</Link>が組み込まれています。なお、全てのコメントは管理人がその内容を確認・承認したうえでの掲載となります。事前の通知なく非表示・削除することがありますのであらかじめご了承ください。
           </p>
-          <h3 class=" text-black dark:text-white">む</h3>
-          <p>
-            趣味の一つは、星空を眺めながら詩を書くことです。夜空に輝く星たちが私にインスピレーションを与えてくれます。詩を書くことで、自分の感情や思いを表現することができ、心が軽くなります。私の詩が、時には風に乗って遠くの誰かの心に届くことを願っています。
+          <h3 class="text-black dark:text-white">ドメインについて</h3>
+          <p class="text-sm/7">
+            <Link href="https://mi.harumakizaemon.net/@harumaki021">Misskey</Link>をホストしようとした際に取得したドメインです。なんか自分の名前の独自ドメイン持ってるの、かっこいいかなと思って……。ハンドルネームを丸ごと使ったのでそこそこ長いURLになっており、若干後悔しています。
           </p>
+          </span>
       </div>
   </Container>
 </Layout>
