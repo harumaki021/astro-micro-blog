@@ -32,21 +32,16 @@ const interests = ["VR", "XR", "Tech", "音ゲー", "初音ミク", "うさぎ"]
       </h1>
       <div class="space-y-16">
         <section>
-          <article class="space-y-4">
+          <article class="space-y-2">
             <span class="animate leading-7">
               <p>ブログとなにかしらの文章等のコンテンツを置く場所です。<br>
-                author: ハルマキ左衛門 a.k.a. harumaki021
+                author: <Link href="/about">ハルマキ左衛門 a.k.a. harumaki021</Link>
+              </p>
+              <p class="space-y-0">
+              当Webサイトはリンクフリーです。<br>
+              [harumakizaemon.net](https://harumakizaemon.net)
               </p>
             </span>
-            <ul class="not-prose flex flex-wrap gap-2">
-              {
-                interests.map((interest, index) => (
-                  <li>
-                    {interest} {index < interests.length - 1 && " |"}
-                  </li>
-                ))
-              }
-            </ul>
           </article>
         </section>
         <section class="animate space-y-4">
@@ -141,6 +136,13 @@ const interests = ["VR", "XR", "Tech", "音ゲー", "初音ミク", "うさぎ"]
               <MisskeyUserTimeline />
               <MisskeyHashtag />
             </div>
+          </article>
+        </section>
+        <section>
+          <article>
+            <span>
+
+            </span>
           </article>
         </section>
       </div>

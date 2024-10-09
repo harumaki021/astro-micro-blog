@@ -24,6 +24,12 @@ export const PROJECTS: Metadata = {
     "harumaki021がこれまで作ったりしたものたちの置き場です",
 };
 
+export const ABOUT: Metadata = {
+  TITLE: "About",
+  DESCRIPTION:
+    "harumaki021とはいったい何なのかの説明です",
+};
+
 export const SOCIALS: Socials = [
   {
     NAME: "Misskey",

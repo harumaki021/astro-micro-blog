@@ -1,0 +1,72 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/Container.astro";
+import Link from "@components/Link.astro";
+import { ABOUT } from "@consts";
+const interests = ["VR", "XR", "音ゲー", "初音ミク", "うさぎ", "LOVOT"];
+---
+<style>
+  h1{
+    @apply font-semibold text-black dark:text-white
+  }
+  h2{
+    @apply font-light text-black dark:text-white
+  }
+  h3{
+    @apply text-black dark:text-white
+  }
+  span{
+    @apply space-y-4 leading-7
+  }
+  div.smtext p{
+    @apply text-sm/7
+  }
+</style>
+
+<Layout title={ABOUT.TITLE} description={ABOUT.DESCRIPTION}>
+  <Container>
+      <div class="animate space-y-6">
+        <span>
+        <h1>
+          About - harumaki021
+        </h1>
+        <h2>概要</h2>
+          <p>
+            名前: ハルマキ左衛門 / はるまきざえもん / harumaki021
+          </p>
+          <p>
+            インターネット上にいる人間です。ゲームがすき。企業に雇われてインフラエンジニアをしています。
+          </p>
+          <ul class="not-prose flex flex-wrap gap-x-2">
+            {
+              interests.map((interest, index) => (
+                <li>
+                  {interest} {index < interests.length - 1 && " |"}
+                </li>
+              ))
+            }
+          </ul>
+          <p>
+            最近の趣味はもっぱらVRです。もしVRSNS上で会ったら仲良くしてやってください。
+          </p>
+        </span>
+        </div>
+      <div class="animate space-y-6 mt-16 smtext">
+        <span>
+          <h2>harumakizaemon.netとはいったいなにか</h2>
+          <h3>サイト内のコンテンツについて</h3>
+          <p>
+            主に私の興味関心のあることを発信しています。各種サービスやメーカー公式とは一切関係がなく、非公式のものであることをご承知ください。
+          </p>
+          <h3>免責事項</h3>
+          <p>
+            ブログのコメント欄は、Githubアカウントを使用する<Link href="https://giscus.app/ja">giscus</Link>が組み込まれています。なお、全てのコメントは管理人がその内容を確認・承認したうえでの掲載となります。事前の通知なく非表示・削除することがありますのであらかじめご了承ください。
+          </p>
+          <h3>ドメインについて</h3>
+          <p>
+            <Link href="https://mi.harumakizaemon.net/@harumaki021">Misskey</Link>をホストしようとした際に取得したドメインです。なんか自分の名前の独自ドメイン持ってるの、かっこいいかなと思って……。ハンドルネームを丸ごと使ったのでそこそこ長いURLになっており、若干後悔しています。
+          </p>
+          </span>
+      </div>
+  </Container>
+</Layout>
