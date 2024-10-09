@@ -2,7 +2,7 @@ import type { Metadata, Site, Snslinks, Socials } from "@types";
 
 export const SITE: Site = {
   TITLE: "harumakizaemon.net",
-  DESCRIPTION: "harumaki021のWebサイト",
+  DESCRIPTION: "はるまきざえもんどっとねっと",
   EMAIL: "test@example.com",
   NUM_POSTS_ON_HOMEPAGE: 5,
   NUM_PROJECTS_ON_HOMEPAGE: 3,
