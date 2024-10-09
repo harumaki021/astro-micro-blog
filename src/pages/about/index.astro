@@ -61,7 +61,9 @@ const interests = ["VR", "XR", "音ゲー", "初音ミク", "うさぎ", "LOVOT"
                     <li class="flex items-start gap-x-6 mb-4">
                       <Link
                         href={SNSLINK.HREF}
+                        rel="me"
                         external
+                        aria-label={`${SITE.TITLE} on ${SNSLINK.NAME}`}
                       >
                         {SNSLINK.NAME}
                       </Link>
@@ -86,7 +88,7 @@ const interests = ["VR", "XR", "音ゲー", "初音ミク", "うさぎ", "LOVOT"
           </p>
           <h3>ドメインについて</h3>
           <p>
-            <Link href="https://mi.harumakizaemon.net/@harumaki021">Misskey</Link>をホストしようとした際に取得したドメインです。なんか自分の名前の独自ドメイン持ってるの、かっこいいかなと思って……。ハンドルネームを丸ごと使ったのでそこそこ長いURLになっており、若干後悔しています。
+            <Link href="https://mi.harumakizaemon.net" external>Misskey</Link>をホストしようとした際に取得したドメインです。なんか自分の名前の独自ドメイン持ってるの、かっこいいかなと思って……。ハンドルネームを丸ごと使ったのでそこそこ長いURLになっており、若干後悔しています。
           </p>
           </span>
       </div>
