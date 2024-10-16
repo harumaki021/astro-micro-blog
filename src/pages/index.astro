@@ -7,7 +7,8 @@ import Link from "@components/Link.astro";
 import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 import MisskeyUserTimeline from "@components/MisskeyUserTimeline.astro";
-import MisskeyHashtag from "@components/MisskeyHashtag.astro";
+import MisskeyHashtag from "@components/MisskeyClip.astro";
+import MisskeyClip from "@components/MisskeyClip.astro";
 
 const blog = (await getCollection("blog"))
   .filter((post) => !post.data.draft)
@@ -134,7 +135,7 @@ const projects: CollectionEntry<"projects">[] = (
           <article>
             <div class="flex flex-col items-center space-y-4">
               <MisskeyUserTimeline />
-              <MisskeyHashtag />
+              <MisskeyClip />
             </div>
           </article>
         </section>
