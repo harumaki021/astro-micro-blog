@@ -4,6 +4,7 @@ import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import pagefind from "astro-pagefind";
+import rehypeFigure from "@microflash/rehype-figure";
 
 // https://astro.build/config
 export default defineConfig({
@@ -18,5 +19,6 @@ export default defineConfig({
       footnoteLabelProperties: { className: [''] },
       footnoteLabelTagName: 'hr',
     },
+    rehypePlugins: [rehypeFigure]
   },
 });
