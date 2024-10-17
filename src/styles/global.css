@@ -124,3 +124,8 @@ pre {
 .footnotes {
   @apply text-sm;
 }
+
+/* Style the figcaptures from rehype-figure */
+figcaption{
+  @apply text-center;
+}
