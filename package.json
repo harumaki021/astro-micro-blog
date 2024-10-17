@@ -19,7 +19,6 @@
     "@fontsource/biz-udpgothic": "^5.1.0",
     "@fontsource/geist-mono": "^5.1.0",
     "@fontsource/geist-sans": "^5.1.0",
-    "@fontsource/m-plus-1p": "^5.1.0",
     "@fontsource/noto-color-emoji": "^5.1.0",
     "@microflash/rehype-figure": "^2.1.1",
     "astro": "^4.15.8",
