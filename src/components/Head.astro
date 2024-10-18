@@ -17,10 +17,12 @@ const { title, description, image = "/placeholder.jpg" } = Astro.props;
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-{/* <link
+{
+  /* <link
   rel="icon"
   href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2275%22>🐇</text></svg>"
-*/} 
+*/
+}
 <meta name="generator" content={Astro.generator} />
 
 <!-- Canonical URL -->
@@ -49,6 +51,9 @@ const { title, description, image = "/placeholder.jpg" } = Astro.props;
 <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
 <script is:inline src="/pagefind/pagefind-ui.js"></script>
 
+<!-- Twemoji -->
+<script is:inline src="https://cdn.jsdelivr.net/npm/@twemoji/api@latest/dist/twemoji.min.js" crossorigin="anonymous"></script>
+
 <ViewTransitions />
 
 <script is:inline>
@@ -59,6 +64,7 @@ const { title, description, image = "/placeholder.jpg" } = Astro.props;
     updateThemeButtons();
     addCopyCodeButtons();
     setGiscusTheme();
+    tw();
 
     const backToTop = document.getElementById("back-to-top");
     backToTop?.addEventListener("click", (event) => scrollToTop(event));
@@ -241,6 +247,9 @@ const { title, description, image = "/placeholder.jpg" } = Astro.props;
       giscus.src = url.toString();
     }
   };
+  /* twemoji */ 
+  const tw = () =>
+  {twemoji.parse(document.body);};
 
   document.addEventListener("DOMContentLoaded", () => init());
   document.addEventListener("astro:after-swap", () => init());

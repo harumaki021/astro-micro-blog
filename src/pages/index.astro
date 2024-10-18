@@ -7,7 +7,6 @@ import Link from "@components/Link.astro";
 import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 import MisskeyUserTimeline from "@components/MisskeyUserTimeline.astro";
-import MisskeyHashtag from "@components/MisskeyClip.astro";
 import MisskeyClip from "@components/MisskeyClip.astro";
 
 const blog = (await getCollection("blog"))
@@ -123,7 +122,7 @@ const projects: CollectionEntry<"projects">[] = (
               <!-- Misskeyを覗き見ぃ……w -->
             </h2>
             <Link href="https://mi.harumakizaemon.net/@harumaki021" external>
-             ===> もっと見る
+             ===&gt; もっと見る
             </Link>
             <span class="text-sm/7">
               <p>
