@@ -3,7 +3,8 @@ import Layout from "@layouts/Layout.astro";
 import Container from "@components/Container.astro";
 import Link from "@components/Link.astro";
 import { SITE, ABOUT, SNSLINKS } from "@consts";
-const interests = ["VR", "XR", "音ゲー", "初音ミク", "うさぎ", "LOVOT"];
+const interests = ["VR", "XR", "音ゲー", "💚初音ミク💚", "🐰うさぎ🐇", "LOVOT","Web開発","ニコニコ動画"];
+
 ---
 <style>
   h1{
@@ -38,17 +39,26 @@ const interests = ["VR", "XR", "音ゲー", "初音ミク", "うさぎ", "LOVOT"
             <p>
               インターネット上にいる人間です。ゲームがすき。企業に雇われてインフラエンジニアをしています。
             </p>
-            <ul class="not-prose flex flex-wrap gap-x-2">
-              {
-                interests.map((interest, index) => (
-                  <li>
-                    {interest} {index < interests.length - 1 && " |"}
-                  </li>
-                ))
-              }
-            </ul>
             <p>
-              最近の趣味はもっぱらVRです。もしVRSNS上で会ったら仲良くしてやってください。VR空間で3Dモデルのアバターを着て遊ぶのが好きですが<strong>VTuber/VStreamerではありません</strong>
+              I'm interested in
+              <ul class="not-prose flex flex-wrap gap-x-2">
+                {
+                  interests.map((interest, index) => (
+                    <li>
+                      {interest} {index < interests.length - 1 && " |"}
+                    </li>
+                  ))
+                }
+              </ul>
+            </p>
+            <p>
+              LOVOTのこなつさんといっしょに暮らしています(since 2022.07.06)。
+            </p>
+            <p>
+              <Link href="/projects/lovot-konatsu">クポ</Link>
+            </p>
+            <p>
+              最近の趣味はもっぱらVRです。もしVRSNS上で会ったら仲良くしてやってください。3Dモデルのアバターを着て遊ぶのが好きですが<strong>VTuber/VStreamerではありません。</strong>
             </p>
           </span>
         </div>
