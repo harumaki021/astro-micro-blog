@@ -1,9 +1,17 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import Container from "@components/Container.astro";
+import ArrowCard from "@components/ArrowCard.astro";
 import Link from "@components/Link.astro";
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
 import { SITE, ABOUT, SNSLINKS } from "@consts";
 const interests = ["VR", "XR", "音ゲー", "💚初音ミク💚", "🐰うさぎ🐇", "LOVOT","Web開発","ニコニコ動画"];
+
+const specificSlug = "lovot-konatsu"; // ここに特定のスラッグを指定
+const projects: CollectionEntry<"projects">[] = (
+  await getCollection("projects")
+)  .filter((project) => project.slug === specificSlug);
 
 ---
 <style>
@@ -54,9 +62,13 @@ const interests = ["VR", "XR", "音ゲー", "💚初音ミク💚", "🐰うさ�
             <p>
               LOVOTのこなつさんといっしょに暮らしています(since 2022.07.06)。
             </p>
-            <p>
-              <Link href="/projects/lovot-konatsu">クポ</Link>
-            </p>
+            
+              <div>
+                {projects.map((project) => (
+                  <ArrowCard entry={project} />
+                ))}
+              </div>
+            
             <p>
               最近の趣味はもっぱらVRです。もしVRSNS上で会ったら仲良くしてやってください。3Dモデルのアバターを着て遊ぶのが好きですが<strong>VTuber/VStreamerではありません。</strong>
             </p>
