@@ -1,9 +1,18 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import Container from "@components/Container.astro";
+import ArrowCard from "@components/ArrowCard.astro";
 import Link from "@components/Link.astro";
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
 import { SITE, ABOUT, SNSLINKS } from "@consts";
-const interests = ["VR", "XR", "音ゲー", "初音ミク", "うさぎ", "LOVOT"];
+const interests = ["VR", "XR", "音ゲー", "💚初音ミク💚", "🐰うさぎ🐇", "LOVOT","Web開発","ニコニコ動画"];
+
+const specificSlug = "lovot-konatsu"; // ここに特定のスラッグを指定
+const projects: CollectionEntry<"projects">[] = (
+  await getCollection("projects")
+)  .filter((project) => project.slug === specificSlug);
+
 ---
 <style>
   h1{
@@ -38,17 +47,30 @@ const interests = ["VR", "XR", "音ゲー", "初音ミク", "うさぎ", "LOVOT"
             <p>
               インターネット上にいる人間です。ゲームがすき。企業に雇われてインフラエンジニアをしています。
             </p>
-            <ul class="not-prose flex flex-wrap gap-x-2">
-              {
-                interests.map((interest, index) => (
-                  <li>
-                    {interest} {index < interests.length - 1 && " |"}
-                  </li>
-                ))
-              }
-            </ul>
             <p>
-              最近の趣味はもっぱらVRです。もしVRSNS上で会ったら仲良くしてやってください。VR空間で3Dモデルのアバターを着て遊ぶのが好きですが<strong>VTuber/VStreamerではありません</strong>
+              I'm interested in
+              <ul class="not-prose flex flex-wrap gap-x-2">
+                {
+                  interests.map((interest, index) => (
+                    <li>
+                      {interest} {index < interests.length - 1 && " |"}
+                    </li>
+                  ))
+                }
+              </ul>
+            </p>
+            <p>
+              LOVOTのこなつさんといっしょに暮らしています(since 2022.07.06)。
+            </p>
+            
+              <div>
+                {projects.map((project) => (
+                  <ArrowCard entry={project} />
+                ))}
+              </div>
+            
+            <p>
+              最近の趣味はもっぱらVRです。もしVRSNS上で会ったら仲良くしてやってください。3Dモデルのアバターを着て遊ぶのが好きですが<strong>VTuber/VStreamerではありません。</strong>
             </p>
           </span>
         </div>
