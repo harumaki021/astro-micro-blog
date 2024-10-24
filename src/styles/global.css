@@ -138,3 +138,8 @@ img.emoji {
   margin: 0 .05em 0 .1em;
   vertical-align: baseline;
 }
+
+/* Astro Social Share */
+.astro-social-share{
+  @apply dark:fill-neutral-100;
+}
