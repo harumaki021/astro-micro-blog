@@ -49,6 +49,18 @@ const prevPost = getPrevPost();
 
 const post = Astro.props;
 const { Content, headings } = await post.render();
+
+// Astro Social Share
+import {
+  FacebookShareButton,
+  TwitterShareButton,
+  SocialShare
+} from "astro-social-share";
+
+import MastodonShareButton from "@components/MastodonShare.astro";
+import MisskeyShareButton from "@components/MisskeyShare.astro";
+
+const BUTTONS = [MastodonShareButton, MisskeyShareButton, TwitterShareButton, FacebookShareButton,]
 ---
 
 <Layout title={post.data.title} description={post.data.description}>
@@ -73,12 +85,17 @@ const { Content, headings } = await post.render();
     {headings.length > 0 && <TableOfContents headings={headings} />}
     <article class="animate">
       <Content />
-      <div class="mt-24">
+      {/* TODO: Shareボタンつける */}
+      <div class="mt-8">
+        <SocialShare
+        buttons={BUTTONS}
+        description={post.data.title}
+        />
+      </div>
+      <div class="mt-8">
         <PostNavigation prevPost={prevPost} nextPost={nextPost} />
       </div>
-      {/* TODO: Shareボタンつける */}
       <div class="mt-24">
-      {/* TODO: Giscus（コメント）いるか要検討 */}
         <Giscus />
       </div>
     </article>
