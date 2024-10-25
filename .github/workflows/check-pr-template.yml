@@ -1,0 +1,16 @@
+name: Check PR Template
+
+on:
+  pull_request:
+    types: [opened, edited]
+
+jobs:
+  check-template:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check PR description
+      run: |
+        if ! grep -q "\- \[x\]" "$GITHUB_EVENT_PATH"; then
+          echo "PRテンプレートのチェックリストが完了していません。"
+          exit 1
+        fi
