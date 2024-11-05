@@ -1,6 +1,6 @@
 ---
 title: SP7段に合格しました【beatmania IIDX Pinky Crush】
-description: がんばれ音ゲ下手野郎パカパカ道中～ぼくがTHE SAFARIを抜けた理由
+description: がんばれ6段きらきら道中～ぼくがTHE SAFARIを抜けた理由
 date: 2024-11-05
 draft: false
 ---
