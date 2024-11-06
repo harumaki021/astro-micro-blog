@@ -1,0 +1,20 @@
+---
+interface Props {
+  noteId: string;
+  UUID: string;
+}
+
+const { noteId } = Astro.props;
+const { UUID } = Astro.props;
+const src = `https://mi.harumakizaemon.net/embed/notes/${noteId}?rounded=false`;
+const embedId = `v1_${UUID}`;
+---
+
+<iframe
+  src={src}
+  data-misskey-embed-id={embedId}
+  loading="lazy"
+  referrerpolicy="strict-origin-when-cross-origin"
+  style="border: none; width: 100%; max-width: 500px; height: 300px; color-scheme: light dark;"
+></iframe>
+<script is:inline defer src="https://mi.harumakizaemon.net/embed.js"></script>

@@ -1,12 +1,12 @@
 {
 "AstroBlogTemplate": {
   "scope": "",
-  "prefix": "astroblog",
+  "prefix": "blog",
   "body": [
     "---",
     "title: ${1:タイトル}",
     "description: ${2:説明}",
-    "date: ${3:YYYY-MM-DD}",
+    "date: ${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE}",
     "draft: false",
     "---",
     "",
@@ -17,12 +17,12 @@
 
 "AstroProjectTemplate": {
   "scope": "",
-  "prefix": "astroproject",
+  "prefix": "project",
   "body": [
     "---",
     "title: ${1:タイトル}",
     "description: ${2:説明}",
-    "date: ${3:YYYY-MM-DD}",
+    "date: ${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE}",
     "draft: false",
     "# demoURL: \"https://astro-sphere-demo.vercel.app\""
     "# repoURL: \"https://github.com/markhorn-dev/astro-sphere\""
@@ -31,7 +31,16 @@
     "## ${4:h2}"
   ],
   "description": "プロジェクト用てんぷれ"
-}
+},
+
+"MisskeyNoteEmbed": {
+  "scope": "",
+  "prefix": "misskeyNote",
+  "body": [
+    "<Misskey noteId=\"${1:noteId}\" UUID=\"$UUID\" />"
+  ],
+  "description": "MisskeyのNoteうめこみ用"
+},
 	// Place your astro-micro-blog workspace snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
 	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
 	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
