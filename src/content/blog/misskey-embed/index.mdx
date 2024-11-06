@@ -163,7 +163,7 @@ VSCodeにはSnippetという機能があり、コードのひな型をあらか�
 
 `${1:noteId}`の部分はプレースホルダです。カーソルが自動で合わさって便利。  
 `$UUID`で乱数を生成します。  
-さいごに、ダブルクォートを `\` でエスケープしてあげればOK。
+ついでにimportもプレースホルダに入れて、最後にダブルクォートを `\` でエスケープしてあげればOK。
 
 ```json
 {
@@ -175,7 +175,8 @@ VSCodeにはSnippetという機能があり、コードのひな型をあらか�
   "scope": "",
   "prefix": "misskeyNote",
   "body": [
-    "<Misskey noteId=\"${1:noteId}\" UUID=\"$UUID\" />"
+    "${1:import Misskey from \"src/components/MisskeyNoteEmbed.astro\"}"
+    "<Misskey noteId=\"${2:noteId}\" UUID=\"$UUID\" />"
   ],
   "description": "MisskeyのNoteうめこみ用"
   }
@@ -184,7 +185,7 @@ VSCodeにはSnippetという機能があり、コードのひな型をあらか�
 
 VSCodeでSnippetを呼び出すと……
 
-** GIFをいれる **
+![ブログテンプレートとMisskeyの埋め込みコンポーネントを呼び出し](./misskey-snippets.webp)
 
 自動でランダム文字列が生成されるようになりました！
 

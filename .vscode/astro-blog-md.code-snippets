@@ -37,7 +37,8 @@
   "scope": "",
   "prefix": "misskeyNote",
   "body": [
-    "<Misskey noteId=\"${1:noteId}\" UUID=\"$UUID\" />"
+    "${1:import Misskey from \"src/components/MisskeyNoteEmbed.astro\"}"
+    "<Misskey noteId=\"${2:noteId}\" UUID=\"$UUID\" />"
   ],
   "description": "MisskeyのNoteうめこみ用"
 },
