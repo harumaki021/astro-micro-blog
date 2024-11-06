@@ -1,13 +1,13 @@
 ---
-import { randomUUID } from 'crypto';
-
 interface Props {
   noteId: string;
+  UUID: string;
 }
 
 const { noteId } = Astro.props;
+const { UUID } = Astro.props;
 const src = `https://mi.harumakizaemon.net/embed/notes/${noteId}?rounded=false`;
-const embedId = `v1_${randomUUID()}`;
+const embedId = `v1_${UUID}`;
 ---
 
 <iframe

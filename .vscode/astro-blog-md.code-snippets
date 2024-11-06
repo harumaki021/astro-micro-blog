@@ -37,7 +37,7 @@
   "scope": "",
   "prefix": "misskeyNote",
   "body": [
-    "<Misskey noteId=\"${1:noteId}\" embedId=\"$UUID\" />"
+    "<Misskey noteId=\"${1:noteId}\" UUID=\"$UUID\" />"
   ],
   "description": "MisskeyのNoteうめこみ用"
 },
