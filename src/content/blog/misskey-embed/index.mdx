@@ -4,27 +4,55 @@ description: Misskey v2024.9の新機能・ノート埋め込みを使ってブ�
 date: 2024-11-06
 draft: false
 ---
+import Misskey from "src/components/MisskeyNoteEmbed.astro"
 
 ## Misskeyがノート埋め込みに対応したよ！
 ### 使い方
 対応バージョンのMisskeyから生成されるコードを張り付けるだけ。
 
-### コードを使いまわしたい：コンポーネント化しよう
-せっかくAstroを使っているので、HTML+JSなコードはいろんなところで使いまわせるようにしたい。  
-よく見たら`noteId`と`embed-Id`だけが毎回違うので、AstroとVSCodeのちからでなんとかした。  
+これが
+![Misskeyの埋め込みコード生成画面。ここでデザインやlight/darkテーマも選べる](./misskeyEmbedcapture01.png)
 
-copilot先生に聞きながら、コンポーネントとして切り出す。
+こうなって
+![Misskeyの埋め込みコード生成完了画面。コードをコピーするボタンが表示されている](./misskeyEmbedcapture02.png)
+
+出来上がったコードがこちら。
+```html
+<iframe
+ src="https://mi.harumakizaemon.net/embed/notes/a06u2qwtli" 
+ data-misskey-embed-id="v1_5f7611e1-770b-4928-acf4-1cefa2ef0d9a" 
+ loading="lazy" 
+ referrerpolicy="strict-origin-when-cross-origin" 
+ style="border: none; width: 100%; max-width: 500px; height: 300px; color-scheme: light dark;">
+</iframe>
+<script defer src="https://mi.harumakizaemon.net/embed.js"></script>
+```
+
+Misskeyの投稿をいい感じにブログに表示した～いとなったら  
+上記のコードをブログ本文に張り付ければOK。
+
+
+### コードを使いまわしたい：コンポーネント化しよう
+せっかくAstroを使っているので、HTML+JSなコードはいろんなところで使いまわせるようにしたい。共通化できる部分はどしどしコンポーネントにしましょう、ってチュートリアルにも書いてあったような気がするし……。
+
+[MisskeyHubのドキュメント](https://misskey-hub.net/ja/docs/for-users/features/embed/) を見る限り、`noteId`と`data-misskey-embed-Id`を変数として渡してあげればいいみたい。  
+> \<NOTE_ID\>: 埋め込むノートのID  
+> \<RANDOM\>: ランダムな文字列（embed.jsを使用する場合は必須。埋め込みコードが同じページに複数ある場合は被らないようにしてください）
+
+
+まずはノート埋め込みコンポーネントとして切り出す。ちなみにコードはほとんどcopilot先生に書いてもらいました。ｼｭｺﾞｲ
 
 ```astro
-<!-- components/MisskeyNoteEmbed.astro -->
+<!-- src/components/MisskeyNoteEmbed.astro -->
 ---
 ---
 
 ```
 
+ブログ本文にはこういう風に書く。コンポーネントを埋め込むので、`.md`形式ではなく`.mdx`形式にする。
 
 ```astro
-<!-- index.mdx -->
+<!-- src/content/blog/hogehoge/index.mdx -->
 ---
 title: タイトル
 description: 説明
@@ -32,15 +60,18 @@ date: YYYY-MM-DD
 draft: false
 ---
 <!-- ノート埋め込みコンポネントを呼び出す -->
-import Misskey from "components/MisskeyNoteEmbed.astro"
+import Misskey from "src/components/MisskeyNoteEmbed.astro"
 
 ## 目次
 
 ## 本文
 hogehoge
-<Misskey noteId="{埋め込みたいノートのnoteId}" embedId="v1_{ランダムな文字列}" />
+<!-- noteIdとUUIDを渡して表示 -->
+<Misskey noteId="{埋め込みたいノートのnoteId}" UUID="{ランダムな文字列}" />
 
 ```
 
+### ランダム文字列どうするか問題
+ 
+copilot先生に当初教えてもらった方法だと、Node.jsの`crypto`モジュールを使うやり方だった。
 
-### 
