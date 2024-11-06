@@ -22,7 +22,7 @@
     "---",
     "title: ${1:タイトル}",
     "description: ${2:説明}",
-    "date: ${3:YYYY-MM-DD}",
+    "date: ${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE}",
     "draft: false",
     "# demoURL: \"https://astro-sphere-demo.vercel.app\""
     "# repoURL: \"https://github.com/markhorn-dev/astro-sphere\""
