@@ -1,0 +1,46 @@
+---
+title: Astroで構築したブログにMisskeyのノート埋め込みをする
+description: Misskey v2024.9の新機能・ノート埋め込みを使ってブログの賑やかしをする
+date: 2024-11-06
+draft: false
+---
+
+## Misskeyがノート埋め込みに対応したよ！
+### 使い方
+対応バージョンのMisskeyから生成されるコードを張り付けるだけ。
+
+### コードを使いまわしたい：コンポーネント化しよう
+せっかくAstroを使っているので、HTML+JSなコードはいろんなところで使いまわせるようにしたい。  
+よく見たら`noteId`と`embed-Id`だけが毎回違うので、AstroとVSCodeのちからでなんとかした。  
+
+copilot先生に聞きながら、コンポーネントとして切り出す。
+
+```astro
+<!-- components/MisskeyNoteEmbed.astro -->
+---
+---
+
+```
+
+
+```astro
+<!-- index.mdx -->
+---
+title: タイトル
+description: 説明
+date: YYYY-MM-DD
+draft: false
+---
+<!-- ノート埋め込みコンポネントを呼び出す -->
+import Misskey from "components/MisskeyNoteEmbed.astro"
+
+## 目次
+
+## 本文
+hogehoge
+<Misskey noteId="{埋め込みたいノートのnoteId}" embedId="v1_{ランダムな文字列}" />
+
+```
+
+
+### 
