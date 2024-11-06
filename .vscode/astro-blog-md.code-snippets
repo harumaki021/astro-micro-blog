@@ -1,7 +1,7 @@
 {
 "AstroBlogTemplate": {
   "scope": "",
-  "prefix": "astroblog",
+  "prefix": "blog",
   "body": [
     "---",
     "title: ${1:タイトル}",
@@ -17,7 +17,7 @@
 
 "AstroProjectTemplate": {
   "scope": "",
-  "prefix": "astroproject",
+  "prefix": "project",
   "body": [
     "---",
     "title: ${1:タイトル}",
@@ -33,7 +33,7 @@
   "description": "プロジェクト用てんぷれ"
 },
 
-"AstroBlogTemplate": {
+"MisskeyNoteEmbed": {
   "scope": "",
   "prefix": "misskeyNote",
   "body": [
