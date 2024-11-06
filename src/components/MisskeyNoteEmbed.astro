@@ -1,0 +1,21 @@
+---
+// components/MisskeyNoteEmbed.astro
+import { randomUUID } from 'crypto';
+
+interface Props {
+  noteId: string;
+}
+
+const { noteId } = Astro.props;
+const src = `https://mi.harumakizaemon.net/embed/notes/${noteId}?rounded=false`;
+const embedId = `v1_${randomUUID()}`;
+---
+
+<iframe
+  src={src}
+  data-misskey-embed-id={embedId}
+  loading="lazy"
+  referrerpolicy="strict-origin-when-cross-origin"
+  style="border: none; width: 100%; max-width: 500px; height: 300px; color-scheme: light dark;"
+></iframe>
+<script defer src="https://mi.harumakizaemon.net/embed.js"></script>
