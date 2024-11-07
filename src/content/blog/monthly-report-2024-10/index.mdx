@@ -4,8 +4,8 @@ description: 日記ができないのでMisskeyのつぶやきを見ながら月
 date: 2024-11-07
 draft: false
 ---
-
-import Misskey from "src/components/MisskeyNoteEmbed.astro"
+import Misskey from "@components/MisskeyNoteEmbed.astro";
+import Fig from "@components/Figcaption.astro";
 
 ## 月報を、します
 [以前のエントリ](/blog/2024-10-08/) でも書いた通り、毎日まめに日記を書くことがまーじでできないので、ひと月分まとめて何やってたかを書いてみようの記事です。
@@ -16,9 +16,11 @@ import Misskey from "src/components/MisskeyNoteEmbed.astro"
 ## 出来事たち
 ### Webサイトをつくった🚀
 
-<Misskey noteId="9z8vhicqeg" UUID="3ca332fc-117d-4297-8165-7234851f5a90" />
+<Fig caption="しめやかに本番運用開始">
+  <Misskey noteId="9z8vhicqeg" UUID="3ca332fc-117d-4297-8165-7234851f5a90" />
+</Fig>
 
-ここのことです。9月終わりごろから技術選定をはじめて、だいたい1週間くらいかけて本番環境ができたみたい。調べものをしつつ、スキマ時間で構築しました。
+ここのことです。9月終わりごろから技術選定をはじめて、だいたい2週間くらいかけて本番環境ができたみたい。調べものをしつつ、スキマ時間で構築しました。
 
 1か月ほどホストしてみて、やっぱり好き放題に書ける場所があるってなんかいいよね、という感想です。BANもないし広告もないしエディタは好きなものが使えるし、非常に快適。  
 
@@ -50,8 +52,6 @@ Resoniteではフェイシャルトラッキングでアバターの表情を動
 QuestProを購入してから、ハードウェアの不具合で交換するのはこれで2回目です。  
 いまはリファービッシュ品のストックがあるっぽいので交換で対応してもらえましたが、今後、在庫がなくて修理できなくなったらどうしようかな～と考えてます。
 
-<Misskey noteId="9ywah62qbq" UUID="29a94059-0aa8-4616-a6bb-63897845e717" />
-
 QuestPro、なんだかんだで気に入ってはいるんですよね。不具合に当たりまくっているのが不満なだけで……。フェイシャルトラッキングできて、おでこ支え式で、画面とレンズがきれいな後継機でないかなあ。
 
 ### ライブに沢山行った🎤
@@ -63,17 +63,21 @@ QuestPro、なんだかんだで気に入ってはいるんですよね。不具
 
 #### 暴カワ
 
-<Misskey noteId="9z0mz7o49o" UUID="8791a520-dfb2-4292-8043-fbd947b6694f" />
-<Misskey noteId="9z0yk84ri5" UUID="34c1a503-f7b0-4845-b44c-3dca9d249505" />
+<Fig caption="お台場でバカでか音楽聞きながらお酒🍺">
+  <Misskey noteId="9z0mz7o49o" UUID="8791a520-dfb2-4292-8043-fbd947b6694f" />
+</Fig>
+<Fig caption="夜までカワイイ">
+  <Misskey noteId="9z0yk84ri5" UUID="34c1a503-f7b0-4845-b44c-3dca9d249505" />
+</Fig>
 
 昼から夜までデカ・オタク・ミュージックがたくさん聞けて非常に楽しかった。野外開催で雨だけ心配でしたが、過ごしやすい天候で助かりました。腰はバキバキになったけどね……。  
 
 #### マジカルミライ2024
 
 <Misskey noteId="9zafrcxxu0" UUID="927dee5e-c5e9-45d0-a499-4eb1a6690c92" />
-<Misskey noteId="9zajs4mpwm" UUID="0a1a3ec5-903a-4ef7-b4e6-6cfd74a2249c" />
-
-<small>今年はドールのミクさんたちを連れていくことはしなかったものの、やっぱりこういう写真は撮りたくなるよね</small>
+<Fig caption="今年はドールのミクさんたちを連れていくことはしなかったものの、やっぱりこういう写真は撮りたくなるよね">
+  <Misskey noteId="9zajs4mpwm" UUID="0a1a3ec5-903a-4ef7-b4e6-6cfd74a2249c" />
+</Fig>
 
 [別記事](/blog/magical-mirai-2024-osaka) にも書きましたが、今年のマジカルミライは現場に行けて良かったな～～～と思えた公演でした。  
 

@@ -50,11 +50,12 @@ Misskeyの投稿をいい感じにブログや自分のWebサイトに表示し�
 
 あと毎回埋め込みコード生成するのも面倒だし、markdown(mdx)で書いているので、単一のノートを埋め込むときは1行で簡単にすませたい。
 
-```html
-<Misskey noteId="{埋め込みたいノートのnoteId}" embedId="{ランダムな文字列}" />
-```
-
-☝こういうイメージね。
+<figure>
+    ```html
+    <Misskey noteId="{埋め込みたいノートのnoteId}" embedId="{ランダムな文字列}" />
+    ```
+  <figcaption>☝こういうイメージね。</figcaption>
+</figure>
 
 調べてみると、Hugoで同様のことをやっている先駆者さま[^1]がいらっしゃいました。  
 [Misskeyの埋め込みをHugoで利用する :: s1ck h4ck](https://4nm1tsu.com/posts/uhz4czt/)
