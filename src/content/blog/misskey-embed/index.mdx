@@ -90,7 +90,7 @@ interface Props {
 }
 
 const { noteId } = Astro.props;
-const src = `https://mi.harumakizaemon.net/embed/notes/${noteId}?rounded=false`;
+const src = `https://mi.harumakizaemon.net/embed/notes/${noteId}?rounded=true`;
 const embedId = `v1_${randomUUID()}`;
 ---
 
@@ -163,7 +163,7 @@ VSCodeにはSnippetという機能があり、コードのひな型をあらか�
 
 `${1:noteId}`の部分はプレースホルダです。カーソルが自動で合わさって便利。  
 `$UUID`で乱数を生成します。  
-ついでにimportもプレースホルダに入れて、最後にダブルクォートを `\` でエスケープしてあげればOK。
+ついでにimport文もプレースホルダに入れて、最後にダブルクォートを `\` でエスケープしてあげればOK。
 
 ```json
 {
@@ -210,7 +210,7 @@ interface Props {
 
 const { noteId } = Astro.props;
 const { UUID } = Astro.props;
-const src = `https://mi.harumakizaemon.net/embed/notes/${noteId}?rounded=false`;
+const src = `https://mi.harumakizaemon.net/embed/notes/${noteId}?rounded=true`;
 const embedId = `v1_${UUID}`;
 ---
 
