@@ -47,6 +47,9 @@ const { title, description, image = "/placeholder.jpg" } = Astro.props;
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={new URL(image, Astro.url)} />
 
+<!-- Bing Search -->
+<meta name="msvalidate.01" content="F276B845F81C4981FCD50428A92CBCE2" />
+
 <!-- PageFind -->
 <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
 <script is:inline src="/pagefind/pagefind-ui.js"></script>
