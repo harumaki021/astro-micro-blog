@@ -4,7 +4,7 @@ import Container from '@components/Container.astro';
 import Link from "@components/Link.astro";
 import { BLOG } from "@consts";
 
-const allPosts = await Astro.glob('src/content/blog/**/*.{md,mdx}');
+const allPosts = await Astro.glob("../../content/blog/**/*.{md,mdx}");
 
 // タグの出現回数をカウント
 const tagCounts = allPosts.reduce((acc, post) => {
