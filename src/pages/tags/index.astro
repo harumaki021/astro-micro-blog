@@ -27,17 +27,15 @@ const sortedTags = Object.entries(tagCounts).sort((a, b) => b[1] - a[1]);
             タグ一覧
           </h2>
           <section class="animate space-y-4">
-            <div class="tags">
-                <ul class="flex gap-4">
+            <div class="flex flex-wrap justify-between gap-y-2">
                   {
                     sortedTags.map(([tag, count]) => (
-                      <li>
+                      <nav class="">
                         <Link href={`/tags/${tag}`}>{tag}</Link>
-                        <span class="text-xs">({count})</span>
-                      </li>
+                        <span class="text-sm">({count})</span>
+                      </nav>
                     ))
                   }
-                </ul>
             </div>
           </section>
         </div>
