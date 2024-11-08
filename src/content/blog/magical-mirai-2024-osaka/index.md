@@ -3,6 +3,7 @@ title: マジカルミライ2024大阪に行ってきました
 description: 思い描いていたミライ、来つつある
 date: 2024-10-17
 draft: false
+tags: ["blog"]
 ---
 
 ## 序

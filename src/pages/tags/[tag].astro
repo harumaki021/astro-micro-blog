@@ -1,0 +1,33 @@
+---
+import { type CollectionEntry, getCollection } from "astro:content";
+import Layout from '@layouts/Layout.astro';
+import Container from '@components/Container.astro';
+import ArrowCard from "@components/ArrowCard.astro";
+import { BLOG } from "@consts";
+
+export async function getStaticPaths() {
+  const allPosts = await Astro.glob('../../content/blog/*/*.{md,mdx}');
+
+  const tags = ["blog", "test"]; // 必要なタグをリストアップ
+
+  return tags.map(tag => ({
+    params: { tag },
+    props: { posts: allPosts }
+  }));
+}
+const { tag } = Astro.params;
+const { posts } = Astro.props;
+const filteredPosts = posts.filter((post) => post.frontmatter.tags?.includes(tag));
+---
+<Layout title={tag} description={BLOG.DESCRIPTION}>
+  <Container>
+    <p>{tag}のタグが付いた記事</p>
+    <ul>
+      {filteredPosts.map((post) =>
+       <li>
+        <a href={post.url}>{post.frontmatter.title}</a>
+        </li>
+        )}
+    </ul>
+  </Container>
+</Layout>
