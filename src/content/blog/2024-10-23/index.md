@@ -3,6 +3,7 @@ title: OSMO Pocket3が欲しい日記
 description: カメラとぬいぐるみの話
 date: 2024-10-23
 draft: false
+tags: ["blog"]
 ---
 ## OSMO Pocket3がほしい
 ほしい。「いつか欲しい」「そのうち欲しい」から「いま相当欲しい」まで気持ちが傾いている。

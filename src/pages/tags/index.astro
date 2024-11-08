@@ -1,0 +1,38 @@
+---
+import Layout from '@layouts/Layout.astro';
+import Container from '@components/Container.astro';
+import Link from "@components/Link.astro";
+import { BLOG } from "@consts";
+
+const allPosts = await Astro.glob("../../content/blog/**/*.{md,mdx}");
+
+// タグの出現回数をカウント
+const tagCounts = allPosts.reduce((acc, post) => {
+  post.frontmatter.tags.forEach((tag: string) => {
+    acc[tag] = (acc[tag] || 0) + 1;
+  });
+  return acc;
+}, {});
+
+// タグを記事数の多い順にソート
+const sortedTags = Object.entries(tagCounts).sort((a, b) => b[1] - a[1]);
+
+---
+<Layout title="タグ一覧" description={BLOG.DESCRIPTION}>
+  <Container>
+    <h2 class="font-semibold text-black dark:text-white">
+      タグ一覧
+    </h2>
+    <div class="tags">
+        {
+          sortedTags.map(([tag, count]) => (
+            <p>
+              <Link href={`/tags/${tag}`}>{tag}</Link>
+              ({count})
+            </p>
+          ))
+        }
+
+    </div>
+  </Container>
+</Layout>

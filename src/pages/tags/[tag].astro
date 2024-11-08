@@ -1,0 +1,46 @@
+---
+import Layout from '@layouts/Layout.astro';
+import Container from '@components/Container.astro';
+import { BLOG } from "@consts";
+import ArrowCard from "@components/ArrowCard.astro";
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const blogPosts = await getCollection("blog");
+  const tags = new Set();
+
+  blogPosts.forEach(post => {
+    if (!post.data.draft && post.data.tags) {
+      post.data.tags.forEach(tag => tags.add(tag));
+    }
+  });
+
+  return Array.from(tags).map(tag => ({ params: { tag } }));
+}
+
+interface TagParams {
+  tag: string;
+}
+
+const { tag } = Astro.params as TagParams;
+const blog = (await getCollection("blog"))
+  .filter((post) => !post.data.draft && post.data.tags.includes(tag))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+
+---
+<Layout title={tag} description={BLOG.DESCRIPTION}>
+  <Container>
+    <h2 class="font-semibold text-black dark:text-white">
+      {tag}のタグが付いた記事
+    </h2>
+    <ul class="not-prose flex flex-col gap-4">
+      {
+        blog.map((post) => (
+          <li>
+            <ArrowCard entry={post} />
+          </li>
+        ))
+      }
+    </ul>
+  </Container>
+</Layout>
