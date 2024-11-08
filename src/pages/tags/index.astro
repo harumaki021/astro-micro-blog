@@ -4,7 +4,7 @@ import Container from '@components/Container.astro';
 import Link from "@components/Link.astro";
 import { BLOG } from "@consts";
 
-const allPosts = await Astro.glob('src/content/blog/*/*.{md,mdx}');
+const allPosts = await Astro.glob('src/content/blog/**/*.{md,mdx}');
 
 // タグの出現回数をカウント
 const tagCounts = allPosts.reduce((acc, post) => {
@@ -26,7 +26,7 @@ const sortedTags = Object.entries(tagCounts).sort((a, b) => b[1] - a[1]);
     <div class="tags">
         {
           sortedTags.map(([tag, count]) => (
-            <p key={tag}>
+            <p>
               <Link href={`/tags/${tag}`}>{tag}</Link>
               ({count})
             </p>
