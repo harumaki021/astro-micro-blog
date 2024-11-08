@@ -6,10 +6,10 @@ interface Props {
 
 const { noteId } = Astro.props;
 const { UUID } = Astro.props;
-const src = `https://mi.harumakizaemon.net/embed/notes/${noteId}?rounded=false`;
+const src = `https://mi.harumakizaemon.net/embed/notes/${noteId}?rounded=true`;
 const embedId = `v1_${UUID}`;
 ---
-<div class="flex flex-col items-center">
+<div class="flex flex-col items-center pt-4">
 <iframe
   src={src}
   data-misskey-embed-id={embedId}
