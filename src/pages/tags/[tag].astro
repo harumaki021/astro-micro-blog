@@ -18,7 +18,11 @@ export async function getStaticPaths() {
   return Array.from(tags).map(tag => ({ params: { tag } }));
 }
 
-const { tag } = Astro.params;
+interface TagParams {
+  tag: string;
+}
+
+const { tag } = Astro.params as TagParams;
 const blog = (await getCollection("blog"))
   .filter((post) => !post.data.draft && post.data.tags.includes(tag))
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
