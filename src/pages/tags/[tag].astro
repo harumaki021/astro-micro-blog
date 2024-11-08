@@ -1,8 +1,6 @@
 ---
-import { type CollectionEntry, getCollection } from "astro:content";
 import Layout from '@layouts/Layout.astro';
 import Container from '@components/Container.astro';
-import ArrowCard from "@components/ArrowCard.astro";
 import { BLOG } from "@consts";
 
 export async function getStaticPaths() {
@@ -15,15 +13,35 @@ export async function getStaticPaths() {
     props: { posts: allPosts }
   }));
 }
-const { tag } = Astro.params;
-const { posts } = Astro.props;
-const filteredPosts = posts.filter((post) => post.frontmatter.tags?.includes(tag));
+
+export async function getStaticProps({ params }) {
+  const allPosts = await Astro.glob('../../content/blog/*/*.{md,mdx}');
+  const filteredPosts = allPosts.filter((post) => post.frontmatter.tags?.includes(params.tag));
+
+  // 各投稿のURLを設定
+  const postsWithUrls = filteredPosts.map(post => {
+    const slug = post.file.split('/').slice(-2, -1)[0]; // フォルダ名を取得
+    return {
+      ...post,
+      url: `/blog/${slug}`
+    };
+  });
+
+  return {
+    props: {
+      posts: postsWithUrls,
+      tag: params.tag
+    }
+  };
+}
+
+const { tag, posts } = Astro.props;
 ---
 <Layout title={tag} description={BLOG.DESCRIPTION}>
   <Container>
     <p>{tag}のタグが付いた記事</p>
     <ul>
-      {filteredPosts.map((post) =>
+      {posts.map((post) => 
        <li>
         <a href={post.url}>{post.frontmatter.title}</a>
         </li>
