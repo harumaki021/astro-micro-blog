@@ -5,8 +5,17 @@ import Link from "@components/Link.astro";
 import { BLOG } from "@consts";
 
 const allPosts = await Astro.glob('src/content/blog/*/*.{md,mdx}');
-const tags = [...new Set(allPosts.map((post) => post.frontmatter.tags).flat())];
-console.log(tags);
+
+// タグの出現回数をカウント
+const tagCounts = allPosts.reduce((acc, post) => {
+  post.frontmatter.tags.forEach(tag => {
+    acc[tag] = (acc[tag] || 0) + 1;
+  });
+  return acc;
+}, {});
+
+// タグを記事数の多い順にソート
+const sortedTags = Object.entries(tagCounts).sort((a, b) => b[1] - a[1]);
 
 ---
 <Layout title="タグ一覧" description={BLOG.DESCRIPTION}>
@@ -16,9 +25,10 @@ console.log(tags);
     </h2>
     <div class="tags">
         {
-          tags.map((tag) => (
-            <p>
+          sortedTags.map(([tag, count]) => (
+            <p key={tag}>
               <Link href={`/tags/${tag}`}>{tag}</Link>
+              ({count})
             </p>
           ))
         }
