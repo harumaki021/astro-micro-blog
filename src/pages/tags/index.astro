@@ -20,19 +20,28 @@ const sortedTags = Object.entries(tagCounts).sort((a, b) => b[1] - a[1]);
 ---
 <Layout title="タグ一覧" description={BLOG.DESCRIPTION}>
   <Container>
-    <h2 class="font-semibold text-black dark:text-white">
-      タグ一覧
-    </h2>
-    <div class="tags">
-        {
-          sortedTags.map(([tag, count]) => (
-            <p>
-              <Link href={`/tags/${tag}`}>{tag}</Link>
-              ({count})
-            </p>
-          ))
-        }
-
-    </div>
+    <aside data-pagefind-ignore>
+      <div class="space-y-10">
+        <div class="space-y-4">
+          <h2 class="animate font-semibold text-black dark:text-white">
+            タグ一覧
+          </h2>
+          <section class="animate space-y-4">
+            <div class="tags">
+                <ul class="flex gap-4">
+                  {
+                    sortedTags.map(([tag, count]) => (
+                      <li>
+                        <Link href={`/tags/${tag}`}>{tag}</Link>
+                        <span class="text-xs">({count})</span>
+                      </li>
+                    ))
+                  }
+                </ul>
+            </div>
+          </section>
+        </div>
+      </div>
+    </aside>
   </Container>
 </Layout>
