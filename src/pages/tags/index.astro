@@ -6,8 +6,11 @@ import { BLOG } from "@consts";
 
 const allPosts = await Astro.glob("../../content/blog/**/*.{md,mdx}");
 
+// ドラフト記事を除外
+const publishedPosts = allPosts.filter(post => !post.frontmatter.draft);
+
 // タグの出現回数をカウント
-const tagCounts = allPosts.reduce((acc, post) => {
+const tagCounts = publishedPosts.reduce((acc, post) => {
   post.frontmatter.tags.forEach((tag: string) => {
     acc[tag] = (acc[tag] || 0) + 1;
   });
