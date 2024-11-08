@@ -6,8 +6,16 @@ import ArrowCard from "@components/ArrowCard.astro";
 import { getCollection } from "astro:content";
 
 export async function getStaticPaths() {
-  const tags = ["blog", "test", "コミュニティ", "ブログ", "後退", "公開学習"];
-  return tags.map(tag => ({ params: { tag } }));
+  const blogPosts = await getCollection("blog");
+  const tags = new Set();
+
+  blogPosts.forEach(post => {
+    if (!post.data.draft && post.data.tags) {
+      post.data.tags.forEach(tag => tags.add(tag));
+    }
+  });
+
+  return Array.from(tags).map(tag => ({ params: { tag } }));
 }
 
 const { tag } = Astro.params;
