@@ -49,7 +49,7 @@ export const SNSLINKS: Snslinks = [
   {
     NAME: "Misskey",
     HREF: "https://mi.harumakizaemon.net/@harumaki021",
-    DESCRIPTION: "自分で運営しているMisskeyサーバー。メインで使っています",
+    DESCRIPTION: "自分で運営しているMisskeyサーバー。メインはここ",
   },
   {
     NAME: "Misskey (Resonite.love)",
@@ -59,7 +59,7 @@ export const SNSLINKS: Snslinks = [
   {
     NAME: "notestock",
     HREF: "https://notestock.osa-p.net/@harumaki021@mi.harumakizaemon.net/view",
-    DESCRIPTION: "Misskeyの過去の投稿を記録してくれるサービス。大変お世話になってます",
+    DESCRIPTION: "Misskeyの過去投稿の一覧",
   },
   {
     NAME: "Bluesky",
