@@ -6,7 +6,7 @@ import Link from "@components/Link.astro";
 import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 import { SITE, ABOUT, SNSLINKS } from "@consts";
-const interests = ["VR", "XR", "音ゲー", "💚初音ミク💚", "🐰うさぎ🐇", "LOVOT","Web開発","ニコニコ動画"];
+const interests = ["VR","XR","Resonite","音ゲー","PopnMusic","IIDX","DDR","💚初音ミク💚","🐰うさぎ🐇","LOVOT","Web開発","niconico"];
 
 const specificSlug = "lovot-konatsu"; // ここに特定のスラッグを指定
 const projects: CollectionEntry<"projects">[] = (
@@ -22,6 +22,9 @@ const projects: CollectionEntry<"projects">[] = (
     @apply font-light text-black dark:text-white
   }
   h3{
+    @apply font-light text-black dark:text-white text-base
+  }
+  h4{
     @apply text-black dark:text-white
   }
   span{
@@ -34,16 +37,17 @@ const projects: CollectionEntry<"projects">[] = (
 
 <Layout title={ABOUT.TITLE} description={ABOUT.DESCRIPTION}>
   <Container>
-      <div class="animate space-y-8">
-        <h1>
-          About - harumaki021 🐰
-        </h1>
-        <div>
-          <span>
-          <h2>概要</h2>
-            <h3>
-              名前: ハルマキ左衛門 / はるまきざえもん / harumaki021
-            </h3>
+    <div class="animate space-y-8">
+      <h1>
+        About - harumaki021 🐰
+      </h1>
+      <div class="animate space-y-2">
+        <h2>概要</h2>
+        <h3>
+          名前: ハルマキ左衛門 / はるまきざえもん / harumaki021
+        </h3>
+        <section>
+          <article>
             <p>
               インターネット上にいる人間です。ゲームがすき。企業に雇われてインフラエンジニアをしています。
             </p>
@@ -60,59 +64,68 @@ const projects: CollectionEntry<"projects">[] = (
               </ul>
             </p>
             <p>
+              最近の趣味はもっぱらVRです。もしVRSNS上で会ったら仲良くしてやってください。3Dモデルのアバターを着て遊ぶのが好きですが、<strong>VTuber / VStreamerではありません。</strong>
+            </p>
+            <p>
               LOVOTのこなつさんといっしょに暮らしています(since 2022.07.06)。
             </p>
-            
-              <div>
-                {projects.map((project) => (
-                  <ArrowCard entry={project} />
-                ))}
-              </div>
-            
-            <p>
-              最近の趣味はもっぱらVRです。もしVRSNS上で会ったら仲良くしてやってください。3Dモデルのアバターを着て遊ぶのが好きですが<strong>VTuber/VStreamerではありません。</strong>
-            </p>
-          </span>
-        </div>
-          <div class=>
-            <span>
-              <h2>各種リンク</h2>
-              <ul>
-                {
-                  SNSLINKS.map((SNSLINK) => (
-                    <li class="flex items-start gap-x-6 mb-4">
-                      <Link
-                        href={SNSLINK.HREF}
-                        rel="me"
-                        external
-                        aria-label={`${SITE.TITLE} on ${SNSLINK.NAME}`}
-                      >
-                        {SNSLINK.NAME}
-                      </Link>
-                      <span class="flex-grow text-sm">{SNSLINK.DESCRIPTION}</span>
-                    </li>
-                  ))
-                }
-              </ul>
-            </span>
-          </div>
-        </div>
-      <div class="animate space-y-6 mt-16 smtext">
-        <span>
-          <h2>harumakizaemon.netとはいったいなにか</h2>
-          <h3>サイト内のコンテンツについて</h3>
+          </article>
+            <div>
+              {projects.map((project) => (
+                <ArrowCard entry={project} />
+              ))}
+            </div>
+        </section>
+      </div>
+      <div class="pt-8">
+        <h2>各種リンク</h2>
+        <section>
+          <article>
+            <ul class="ps-1 pe-1">
+              {SNSLINKS.map((SNSLINK) => (
+                <li class="flex justify-between items-center">
+                  <Link
+                    href={SNSLINK.HREF}
+                    rel="me"
+                    external
+                    aria-label={`${SITE.TITLE} on ${SNSLINK.NAME}`}
+                  >
+                    {SNSLINK.NAME}
+                  </Link>
+                  <span class="flex-grow text-right text-sm">{SNSLINK.DESCRIPTION}</span>
+                </li>
+              ))}
+            </ul>
+          </article>
+        </section>
+      </div>
+    </div>
+    <div class="animate space-y-6 pt-8">
+      <h2>harumakizaemon.netとはいったいなにか</h2>
+      <h3>サイト内のコンテンツについて</h3>
+      <section>
+        <article>
           <p>
-            主に私の興味関心のあることを発信しています。各種サービスやメーカー公式とは一切関係がなく、非公式のものであることをご承知ください。
+            主に私の興味関心のあることを発信しています。各種サービスやメーカー公式とは<strong>一切関係がない非公式</strong>のものであることをご承知ください。
           </p>
-          <h3>免責事項</h3>
+        </article>
+      </section>
+      <h3>免責事項</h3>
+      <section>
+        <article>
           <p>
-            ブログのコメント欄は、Githubアカウントを使用する<Link href="https://giscus.app/ja">giscus</Link>が組み込まれています。なお、全てのコメントは管理人がその内容を確認・承認したうえでの掲載となります。事前の通知なく非表示・削除することがありますのであらかじめご了承ください。
+            ブログのコメント欄は、Githubアカウントを使用する<Link href="https://giscus.app/ja">giscus</Link>が組み込まれています。なお、全てのコメントは管理人がその内容を確認・承認したうえでの掲載となります。事前の通知なく非表示・削除することがありますので、あらかじめご了承ください。
           </p>
-          <h3>ドメインについて</h3>
+        </article>
+      </section>
+      <h3>ドメインについて</h3>
+      <section>
+        <article>
           <p>
             <Link href="https://mi.harumakizaemon.net" external>Misskey</Link>をホストしようとした際に取得したドメインです。なんか自分の名前の独自ドメイン持ってるの、かっこいいかなと思って……。ハンドルネームを丸ごと使ったのでそこそこ長いURLになっており、若干後悔しています。
           </p>
-          </span>
-      </div>
+        </article>
+      </section>
+    </div>
   </Container>
 </Layout>

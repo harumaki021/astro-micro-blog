@@ -3,6 +3,7 @@ title: 今までのドールのはなし
 description: ドールが好きなんだよ
 date: 2024-10-16
 draft: false
+tags: ["blog","ドール","初音ミク"]
 ---
 
 ## これまでの遍歴
