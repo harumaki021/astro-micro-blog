@@ -3,11 +3,15 @@ import Layout from '@layouts/Layout.astro';
 import Container from '@components/Container.astro';
 import Link from "@components/Link.astro";
 import { BLOG } from "@consts";
+import BackToPrevious from '@components/BackToPrevious.astro';
 
 const allPosts = await Astro.glob("../../content/blog/**/*.{md,mdx}");
 
+// ドラフト記事を除外
+const publishedPosts = allPosts.filter(post => !post.frontmatter.draft);
+
 // タグの出現回数をカウント
-const tagCounts = allPosts.reduce((acc, post) => {
+const tagCounts = publishedPosts.reduce((acc, post) => {
   post.frontmatter.tags.forEach((tag: string) => {
     acc[tag] = (acc[tag] || 0) + 1;
   });
@@ -20,19 +24,29 @@ const sortedTags = Object.entries(tagCounts).sort((a, b) => b[1] - a[1]);
 ---
 <Layout title="タグ一覧" description={BLOG.DESCRIPTION}>
   <Container>
-    <h2 class="font-semibold text-black dark:text-white">
-      タグ一覧
-    </h2>
-    <div class="tags">
-        {
-          sortedTags.map(([tag, count]) => (
-            <p>
-              <Link href={`/tags/${tag}`}>{tag}</Link>
-              ({count})
-            </p>
-          ))
-        }
-
+    <div class="animate">
+      <aside data-pagefind-ignore>
+        <div class="space-y-10">
+          <div class="space-y-4">
+            <BackToPrevious href="/blog">blog</BackToPrevious>
+            <h2 class="animate font-semibold text-black dark:text-white">
+              タグ一覧
+            </h2>
+            <section class="animate space-y-4">
+              <div class="flex flex-wrap justify-between gap-2">
+                    {
+                      sortedTags.map(([tag, count]) => (
+                        <nav class="">
+                          <Link href={`/tags/${tag}`}>{tag}</Link>
+                          <span class="text-sm">({count})</span>
+                        </nav>
+                      ))
+                    }
+              </div>
+            </section>
+          </div>
+        </div>
+      </aside>
     </div>
   </Container>
 </Layout>

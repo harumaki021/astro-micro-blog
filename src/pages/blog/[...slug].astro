@@ -59,6 +59,7 @@ import {
 
 import MastodonShareButton from "@components/MastodonShare.astro";
 import MisskeyShareButton from "@components/MisskeyShare.astro";
+import Link from "@components/Link.astro";
 
 const BUTTONS = [MastodonShareButton, MisskeyShareButton, TwitterShareButton, FacebookShareButton,]
 ---
@@ -81,6 +82,16 @@ const BUTTONS = [MastodonShareButton, MisskeyShareButton, TwitterShareButton, Fa
       <h1 class="animate text-3xl font-semibold text-black dark:text-white">
         {post.data.title}
       </h1>
+      <div class="animate max-w-md pt-2">
+        <ul class="flex flex-wrap items-center gap-x-3 gap-y-2 text-sm">
+          {post.data.tags.map((tag) => (
+            <li>
+            <div class="grayscale inline-block">&#127991;</div>
+            <Link href={`/tags/${tag}`}>{tag}</Link>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
     {headings.length > 0 && <TableOfContents headings={headings} />}
     <article class="animate">
