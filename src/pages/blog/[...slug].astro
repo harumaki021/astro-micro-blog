@@ -69,7 +69,7 @@ const BUTTONS = [MastodonShareButton, MisskeyShareButton, TwitterShareButton, Fa
     <div class="animate">
       <BackToPrevious href="/blog">blog</BackToPrevious>
     </div>
-    <div class="my-10 space-y-1">
+    <div class="my-10 space-y-2">
       <div class="animate flex items-center gap-1.5">
         <div class="font-base text-sm">
           <FormattedDate date={post.data.date} />
@@ -82,6 +82,11 @@ const BUTTONS = [MastodonShareButton, MisskeyShareButton, TwitterShareButton, Fa
       <h1 class="animate text-3xl font-semibold text-black dark:text-white">
         {post.data.title}
       </h1>
+      <div class="animate space-y-2 pt-2">
+        <span class="text-sm">
+          {post.data.description}
+        </span>
+      </div>
       <div class="animate max-w-md pt-2">
         <ul class="flex flex-wrap items-center gap-x-3 gap-y-2 text-sm">
           {post.data.tags.map((tag) => (
