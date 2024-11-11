@@ -3,7 +3,7 @@ title: ブログ改造進行中
 description: 勉強しながらちょっとずつできることが増えるとうれしいねって話
 date: 2024-10-25
 draft: false
-tags: ["blog"]
+tags: ["blog","Web開発"]
 ---
 
 ## お勉強難しいけど楽しい

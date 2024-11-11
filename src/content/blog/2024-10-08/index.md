@@ -3,7 +3,7 @@ title: 思いつ記
 description: no context
 date: 2024-10-08
 draft: false
-tags: ["blog"]
+tags: ["blog","Web開発"]
 ---
 
 ## 日記がつづかない
