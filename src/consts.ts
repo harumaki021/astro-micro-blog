@@ -84,7 +84,7 @@ export const SNSLINKS: Snslinks = [
   {
     NAME: "Twitch",
     HREF: "https://twitch.tv/harumaki021",
-    DESCRIPTION: "ゲームと運動する様を配信します。フォローして❤"
+    DESCRIPTION: "ゲームと運動する様を配信します"
   },
   {
     NAME: "YouTube",
