@@ -1,0 +1,62 @@
+---
+import { getCollection } from 'astro:content';
+import Link from './Link.astro';
+const posts = await getCollection('blog');
+
+const today = new Date();
+const startDate = new Date(today.getFullYear(), 11, 1); // 12月1日
+const endDate = new Date(today.getFullYear(), 11, 25); // 12月25日
+
+const adventPosts = posts.filter(post => {
+  const postDate = new Date(post.data.date);
+  return postDate >= startDate && postDate <= endDate;
+});
+
+const days = Array.from({ length: 25 }, (_, i) => {
+  const date = new Date(today.getFullYear(), 11, i + 1);
+  const post = adventPosts.find(post => new Date(post.data.date).getDate() === i + 1);
+  return { date, post };
+});
+---
+<style>
+  /* カスタムスタイル */
+  .shape-square {
+    border-radius: 0;
+  }
+  
+  .shape-diamond {
+    transform: rotate(45deg);
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+</style>
+
+<div class="grid grid-cols-7 gap-4">
+  {days.map(({ date, post }) => (
+    <div class="text-center">
+      <a
+        href={post && new Date() >= date ? `/blog/${post.slug}` : '#'}
+        class={`block w-12 h-12 ${new Date() >= date ? 'bg-green-500' : 'bg-gray-300'} ${new Date() >= date ? 'shape-diamond' : 'shape-square'}`}
+        aria-disabled={!post || new Date() < date}
+      >
+        {date.getDate()}
+      </a>
+    </div>
+  ))}
+</div>
+<div class="mt-8">
+  <ul>
+    {adventPosts.map(post => (
+      <li  class="mb-4">
+        <h3>{post.data.title}</h3>
+        <p>{post.data.description}</p>
+        {new Date() >= new Date(post.data.date) && (
+          <Link href={`/blog/${post.slug}`} >Read more</Link>
+        )}
+      </li>
+    ))}
+  </ul>
+</div>

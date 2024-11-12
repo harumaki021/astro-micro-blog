@@ -1,0 +1,16 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/Container.astro";
+import { SITE, ABOUT, SNSLINKS } from "@consts";
+import AdventCalender from "@components/AdventCalender.astro";
+
+---
+
+
+<Layout title="adventCalender" description={ABOUT.DESCRIPTION}>
+  <Container>
+    <div>
+      <AdventCalender />
+    </div>
+  </Container>
+</Layout>
