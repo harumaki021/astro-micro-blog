@@ -8,11 +8,12 @@
     "description: ${2:説明}",
     "date: ${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE}",
     "draft: false",
+    "tags: [\"${4:blog}\"]",
     "---",
     "",
     "import Misskey from \"@components/MisskeyNoteEmbed.astro\";",
     "import Fig from \"@components/Figcaption.astro\";",
-    "## ${4:h2}"
+    "## ${5:h2}"
   ],
   "description": "ブログ用てんぷれ"
 },
@@ -26,8 +27,8 @@
     "description: ${2:説明}",
     "date: ${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE}",
     "draft: false",
-    "# demoURL: \"https://astro-sphere-demo.vercel.app\""
-    "# repoURL: \"https://github.com/markhorn-dev/astro-sphere\""
+    "# demoURL: \"https://astro-sphere-demo.vercel.app\"",
+    "# repoURL: \"https://github.com/markhorn-dev/astro-sphere\"",
     "---",
     "",
     "## ${4:h2}"
@@ -39,8 +40,7 @@
   "scope": "",
   "prefix": "misskeyNote",
   "body": [
-    "${1:import Misskey from \"src/components/MisskeyNoteEmbed.astro\"}"
-    "<Misskey noteId=\"${2:noteId}\" UUID=\"$UUID\" />"
+    "<Misskey noteId=\"${1:noteId}\" UUID=\"$UUID\" />"
   ],
   "description": "MisskeyのNoteうめこみ用"
 },

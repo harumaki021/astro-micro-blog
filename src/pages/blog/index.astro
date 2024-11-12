@@ -14,11 +14,13 @@ type Acc = {
 };
 
 const posts = data.reduce((acc: Acc, post) => {
-  const year = post.data.date.getFullYear().toString();
-  if (!acc[year]) {
-    acc[year] = [];
+  const date = new Date(post.data.date);
+  const yearMonth = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}`;
+  
+  if (!acc[yearMonth]) {
+    acc[yearMonth] = [];
   }
-  acc[year].push(post);
+  acc[yearMonth].push(post);
   return acc;
 }, {});
 
@@ -34,14 +36,14 @@ const years = Object.keys(posts).sort((a, b) => parseInt(b) - parseInt(a));
             Blog - 好き勝手に書いてる 📝
           </div>
           {
-            years.map((year) => (
+            years.map((yearMonth) => (
               <section class="animate space-y-4">
                 <div class="text-black dark:text-white">
-                  {year}
+                  {yearMonth}
                 </div>
                 <div>
                   <ul class="not-prose flex flex-col gap-4">
-                    {posts[year].map((post) => (
+                    {posts[yearMonth].map((post) => (
                       <li>
                         <ArrowCard entry={post} />
                       </li>
