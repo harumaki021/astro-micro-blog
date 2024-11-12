@@ -52,7 +52,7 @@ export const SNSLINKS: Snslinks = [
     DESCRIPTION: "自分で運営しているMisskeyサーバー。メインはここ",
   },
   {
-    NAME: "Misskey (Resonite.love)",
+    NAME: "Misskey(Resonite.love)",
     HREF: "https://misskey.resonite.love/@harumaki021",
     DESCRIPTION: "Resonite関係の話題等",
   },
@@ -62,12 +62,17 @@ export const SNSLINKS: Snslinks = [
     DESCRIPTION: "Misskeyの過去投稿の一覧",
   },
   {
+    NAME: "scrapbox(Cosence)",
+    HREF: "https://scrapbox.io/harumaki021",
+    DESCRIPTION: "個人的な知見のWiki",
+  },
+  {
     NAME: "Bluesky",
     HREF: "https://bsky.app/profile/harumakizaemon.net",
     DESCRIPTION: "主にLOVOTのことをつぶやきます",
   },
   {
-    NAME: "X (formerly Twitter)",
+    NAME: "X(formerly Twitter)",
     HREF: "https://twitter.com/hrmkzaemon_vr",
     DESCRIPTION: "RePostばかりです",
   },
