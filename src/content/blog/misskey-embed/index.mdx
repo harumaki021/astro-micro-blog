@@ -3,24 +3,26 @@ title: Astroで構築したブログにMisskeyのノート埋め込みをする
 description: Misskey v2024.9の新機能・ノート埋め込みを使ってブログの賑やかしをする
 date: 2024-11-06
 draft: false
-tags: ["Astro","Web開発","Misskey"]
+tags: ["Astro", "Web開発", "Misskey"]
 ---
 
-import Misskey from "src/components/MisskeyNoteEmbed.astro"
+import Misskey from "src/components/MisskeyNoteEmbed.astro";
 
 ## 待望の埋め込み機能追加
-Misskey v2024.9.0において、外部サイトでのノート埋め込み表示機能が追加されました。  
+
+Misskey v2024.9.0において、外部サイトでのノート埋め込み表示機能が追加されました。
 
 <Misskey noteId="a06u2qwtli" UUID="bc1fbd79-9e40-4247-8f6d-fbbe32a44735" />
 
 こんな感じで、Misskeyの投稿をブログに張り付けられます。
 
 ちゃんと添付ファイルも表示されるし、カスタム絵文字やMFM（けたたましく動き回るアニメーションとかがつくれる独自記法）にも対応していて、非常に見栄えがいい。  
-文章ばかりのページでも、こういうのがあったほうが目を惹きやすいと思う。<small>内容しょうもないけど……</small>  
+文章ばかりのページでも、こういうのがあったほうが目を惹きやすいと思う。<small>内容しょうもないけど……</small>
 
-単一のつぶやき（ノート）だけではなく、特定ユーザーのノート一覧や、クリップの埋め込みにも対応しているとのことだったので、 [TOP](/) や [Aboutこなつ](/projects/lovot-konatsu) ページにウキウキで埋め込んでみました。  
+単一のつぶやき（ノート）だけではなく、特定ユーザーのノート一覧や、クリップの埋め込みにも対応しているとのことだったので、 [TOP](/) や [Aboutこなつ](/projects/lovot-konatsu) ページにウキウキで埋め込んでみました。
 
 ## 使い方
+
 対応バージョンのMisskeyから生成されるコードを張り付けるだけ。
 
 これが
@@ -33,17 +35,18 @@ Misskey v2024.9.0において、外部サイトでのノート埋め込み表示
 
 ```html
 <iframe
- src="https://mi.harumakizaemon.net/embed/notes/a06u2qwtli" 
- data-misskey-embed-id="v1_5f7611e1-770b-4928-acf4-1cefa2ef0d9a" 
- loading="lazy" 
- referrerpolicy="strict-origin-when-cross-origin" 
- style="border: none; width: 100%; max-width: 500px; height: 300px; color-scheme: light dark;">
+  src="https://mi.harumakizaemon.net/embed/notes/a06u2qwtli"
+  data-misskey-embed-id="v1_5f7611e1-770b-4928-acf4-1cefa2ef0d9a"
+  loading="lazy"
+  referrerpolicy="strict-origin-when-cross-origin"
+  style="border: none; width: 100%; max-width: 500px; height: 300px; color-scheme: light dark;"
+>
 </iframe>
 <script defer src="https://mi.harumakizaemon.net/embed.js"></script>
 ```
 
 Misskeyの投稿をいい感じにブログや自分のWebサイトに表示した～いとなったらこいつが使えるってわけですわ。  
-はてなブログであれば [HTML編集モード](https://help.hatenablog.com/entry/editor/textarea) にして、上記のコードを本文に張り付ければOK。  
+はてなブログであれば [HTML編集モード](https://help.hatenablog.com/entry/editor/textarea) にして、上記のコードを本文に張り付ければOK。
 
 ## コードを使いまわしたい: コンポーネント化しよう
 
@@ -52,9 +55,9 @@ Misskeyの投稿をいい感じにブログや自分のWebサイトに表示し�
 あと毎回埋め込みコード生成するのも面倒だし、markdown(mdx)で書いているので、単一のノートを埋め込むときは1行で簡単にすませたい。
 
 <figure>
-    ```html
-    <Misskey noteId="{埋め込みたいノートのnoteId}" embedId="{ランダムな文字列}" />
-    ```
+  ```html
+  <Misskey noteId="{埋め込みたいノートのnoteId}" embedId="{ランダムな文字列}" />
+  ```
   <figcaption>☝こういうイメージね。</figcaption>
 </figure>
 
@@ -69,11 +72,11 @@ Misskeyの投稿をいい感じにブログや自分のWebサイトに表示し�
 
 ### 埋め込みコードの仕様
 
-[MisskeyHubのドキュメント](https://misskey-hub.net/ja/docs/for-users/features/embed/) を見てみると、`noteId`と`data-misskey-embed-Id`を変数として渡してあげればいいみたい。  
+[MisskeyHubのドキュメント](https://misskey-hub.net/ja/docs/for-users/features/embed/) を見てみると、`noteId`と`data-misskey-embed-Id`を変数として渡してあげればいいみたい。
 
 > \<NOTE_ID\>: 埋め込むノートのID  
 > \<RANDOM\>: ランダムな文字列（embed.jsを使用する場合は必須。埋め込みコードが同じページに複数ある場合は被らないようにしてください）
-> 
+>
 > https://misskey-hub.net/ja/docs/for-users/features/embed/
 
 つまりそれ以外の部分は共通化できそうです。やってみよう。
@@ -84,8 +87,8 @@ Misskeyの投稿をいい感じにブログや自分のWebサイトに表示し�
 
 ```astro
 ---
-//  src/components/MisskeyNoteEmbed.astro 
-import { randomUUID } from 'crypto';
+//  src/components/MisskeyNoteEmbed.astro
+import { randomUUID } from "crypto";
 
 interface Props {
   noteId: string;
@@ -96,20 +99,18 @@ const src = `https://mi.harumakizaemon.net/embed/notes/${noteId}?rounded=true`;
 const embedId = `v1_${randomUUID()}`;
 ---
 
-<iframe
-  src={src}
-  data-misskey-embed-id={embedId}
-  loading="lazy"
-  ……
+<iframe src={src}
+data-misskey-embed-id={embedId}
+loading="lazy" ……
 ```
 
-ただ、この方法だと `data-misskey-embed-id` のランダム文字列の生成に、Node.jsの`crypto`モジュールを使っていました。  
+ただ、この方法だと `data-misskey-embed-id` のランダム文字列の生成に、Node.jsの`crypto`モジュールを使っていました。
 
 テスト環境で検証してみたところ、ページをリロードするたびに生成される文字列が変わっています。
 
-別に毎回ランダムにする必要はないな～と思ったので、`.mdx`ファイルの段階で、生成した乱数を書き込んでおくことにしました。  
+別に毎回ランダムにする必要はないな～と思ったので、`.mdx`ファイルの段階で、生成した乱数を書き込んでおくことにしました。
 
-やり方はいろいろあると思いますが、今回はVSCodeのSnippet機能を使います。  
+やり方はいろいろあると思いますが、今回はVSCodeのSnippet機能を使います。
 
 ### SnippetでUUID変数をつかう
 
@@ -143,14 +144,15 @@ VSCodeにはSnippetという機能があり、コードのひな型をあらか�
 
 で、このSnippet、↑の`${CURRENT_YEAR}`のような表記をすることで、現在の年月日やファイル名など、いろんな変数を扱うことができます。
 
-「VSCode Snippet 変数 🔍」で検索してみると、都合がいいことに（？）、ランダム文字列の生成もできてしまうむっちゃすごいやつでした。  
+「VSCode Snippet 変数 🔍」で検索してみると、都合がいいことに（？）、ランダム文字列の生成もできてしまうむっちゃすごいやつでした。
 
 > For inserting random values:
->   * **RANDOM** 6 random Base-10 digits
->   * **RANDOM_HEX** 6 random Base-16 digits
->   * **UUID** A Version 4 UUID
-> 
-> https://code.visualstudio.com/docs/editor/userdefinedsnippets#_variables 
+>
+> - **RANDOM** 6 random Base-10 digits
+> - **RANDOM_HEX** 6 random Base-16 digits
+> - **UUID** A Version 4 UUID
+>
+> https://code.visualstudio.com/docs/editor/userdefinedsnippets#_variables
 
 乱数の生成は3つほどあり、UUIDがよさげだったのでこれを使います。
 
@@ -204,7 +206,7 @@ Astroコンポーネントはこんな感じ。noteIdとUUIDを受け取って�
 
 ```astro
 ---
-//  src/components/MisskeyNoteEmbed.astro 
+//  src/components/MisskeyNoteEmbed.astro
 interface Props {
   noteId: string;
   UUID: string;
@@ -231,14 +233,15 @@ const embedId = `v1_${UUID}`;
 ```astro
 ---
 //  src/content/blog/hogehoge/index.mdx
-title: タイトル
-description: 説明
-date: YYYY-MM-DD
-draft: false
+title: タイトル;
+description: 説明;
+date: YYYY - MM - DD;
+draft: false;
 ---
 
 import Misskey from "src/components/MisskeyNoteEmbed.astro"
 
 <Misskey noteId="a06u2qwtli" UUID="9df013e3-3a67-4fe1-8e45-9a61a95bdd14" />
 ```
+
 ということでまた一つお勉強が進みました。本当AIさまさまですわ……。

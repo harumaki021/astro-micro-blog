@@ -3,10 +3,11 @@ title: 思いつ記
 description: no context
 date: 2024-10-08
 draft: false
-tags: ["blog","Web開発"]
+tags: ["blog", "Web開発"]
 ---
 
 ## 日記がつづかない
+
 月報のやつやるか。
 
 2年ほど前からScrapbox [^1] というwikiサービスを借りて、思いついたときに数か月分何をやっていたかの記録（月報？）をとるようにしていた。
@@ -43,13 +44,14 @@ export default defineConfig({
       theme: "css-variables",
     },
     remarkRehype: {
-      footnoteLabel: ' ',
-      footnoteLabelProperties: { className: [''] },
-      footnoteLabelTagName: 'hr',
+      footnoteLabel: " ",
+      footnoteLabelProperties: { className: [""] },
+      footnoteLabelTagName: "hr",
     },
   },
 });
 ```
+
 Mastodon/Missey/Blueskyへのシェアボタンを各ページ下につけたいな～とか、やりたいことはそれなりにあります。<small>自己満足だけどいいでしょ別に、ここは俺のチラシの裏……</small>
 
 せっかく好き放題できるブログなんだから、デフォルトのテンプレートのままじゃつまんないよね。ということで各種ナビゲーションをゆるめの言葉にしていい感じにしたり、分からないなりにいじっています。楽しい。
@@ -57,5 +59,4 @@ Mastodon/Missey/Blueskyへのシェアボタンを各ページ下につけたい
 調べながら手を動かしてみて、思い通りになったときに「楽しい」「うまくいって嬉しい」とポジティブな感情が持てるうちは、まだまだITのお仕事やっていけるのかな～とふと思った。<br>
 まあ、飽きたら日記と同じようにカジュアルに辞めたり始めたりするつもりです。そのくらいゆるい人生設計で今月もやっていこうと思います。
 
-
- [^1]: 現在はCosenseにサービス名称が変わっている。正直ピンとこないネーミングで、いつまで経っても新名称を覚えられない気がしている
+[^1]: 現在はCosenseにサービス名称が変わっている。正直ピンとこないネーミングで、いつまで経っても新名称を覚えられない気がしている

@@ -1,22 +1,22 @@
 ---
-import Layout from '@layouts/Layout.astro';
-import Container from '@components/Container.astro';
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/Container.astro";
 import { BLOG } from "@consts";
 import ArrowCard from "@components/ArrowCard.astro";
 import { getCollection } from "astro:content";
-import BackToPrevious from '@components/BackToPrevious.astro';
+import BackToPrevious from "@components/BackToPrevious.astro";
 
 export async function getStaticPaths() {
   const blogPosts = await getCollection("blog");
   const tags = new Set();
 
-  blogPosts.forEach(post => {
+  blogPosts.forEach((post) => {
     if (!post.data.draft && post.data.tags) {
-      post.data.tags.forEach(tag => tags.add(tag));
+      post.data.tags.forEach((tag) => tags.add(tag));
     }
   });
 
-  return Array.from(tags).map(tag => ({ params: { tag } }));
+  return Array.from(tags).map((tag) => ({ params: { tag } }));
 }
 
 interface TagParams {
@@ -26,14 +26,14 @@ interface TagParams {
 const { tag } = Astro.params as TagParams;
 const blog = (await getCollection("blog"))
   .filter((post) => !post.data.draft && post.data.tags.includes(tag))
-  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
-
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
+
 <Layout title={tag} description={BLOG.DESCRIPTION}>
   <Container>
     <div class="animate">
       <BackToPrevious href="/tags">tags</BackToPrevious>
-      <h2 class="font-semibold text-black dark:text-white py-6">
+      <h2 class="py-6 font-semibold text-black dark:text-white">
         {tag}のタグが付いた記事
       </h2>
       <ul class="animate not-prose flex flex-col gap-4">

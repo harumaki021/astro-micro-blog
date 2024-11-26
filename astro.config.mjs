@@ -15,10 +15,10 @@ export default defineConfig({
       theme: "css-variables",
     },
     remarkRehype: {
-      footnoteLabel: ' ',
-      footnoteLabelProperties: { className: [''] },
-      footnoteLabelTagName: 'hr',
+      footnoteLabel: " ",
+      footnoteLabelProperties: { className: [""] },
+      footnoteLabelTagName: "hr",
     },
-    rehypePlugins: [rehypeFigure]
+    rehypePlugins: [rehypeFigure],
   },
 });

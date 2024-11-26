@@ -1,11 +1,14 @@
 ---
 const { caption } = Astro.props;
 ---
-{caption ? (
-  <figure>
+
+{
+  caption ? (
+    <figure>
+      <slot />
+      <figcaption>{caption}</figcaption>
+    </figure>
+  ) : (
     <slot />
-    <figcaption>{caption}</figcaption>
-  </figure>
-) : (
-  <slot />
-)}
+  )
+}

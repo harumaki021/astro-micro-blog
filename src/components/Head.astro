@@ -55,7 +55,10 @@ const { title, description, image = "/placeholder.jpg" } = Astro.props;
 <script is:inline src="/pagefind/pagefind-ui.js"></script>
 
 <!-- Twemoji -->
-<script is:inline src="https://cdn.jsdelivr.net/npm/@twemoji/api@latest/dist/twemoji.min.js" crossorigin="anonymous"></script>
+<script
+  is:inline
+  src="https://cdn.jsdelivr.net/npm/@twemoji/api@latest/dist/twemoji.min.js"
+  crossorigin="anonymous"></script>
 
 <ViewTransitions />
 
@@ -174,8 +177,8 @@ const { title, description, image = "/placeholder.jpg" } = Astro.props;
              -ms-transition: none !important;
              transition: none !important;
           }
-        `
-      )
+        `,
+      ),
     );
 
     document.head.appendChild(css);
@@ -250,9 +253,10 @@ const { title, description, image = "/placeholder.jpg" } = Astro.props;
       giscus.src = url.toString();
     }
   };
-  /* twemoji */ 
-  const tw = () =>
-  {twemoji.parse(document.body);};
+  /* twemoji */
+  const tw = () => {
+    twemoji.parse(document.body);
+  };
 
   document.addEventListener("DOMContentLoaded", () => init());
   document.addEventListener("astro:after-swap", () => init());
