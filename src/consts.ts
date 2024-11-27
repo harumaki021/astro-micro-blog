@@ -15,19 +15,18 @@ export const HOME: Metadata = {
 
 export const BLOG: Metadata = {
   TITLE: "Blog",
-  DESCRIPTION: "harumaki021のブログです。VRなど興味のあることについて書いています",
+  DESCRIPTION:
+    "harumaki021のブログです。VRなど興味のあることについて書いています",
 };
 
 export const PROJECTS: Metadata = {
   TITLE: "Projects",
-  DESCRIPTION:
-    "harumaki021がこれまで作ったりしたものたちの置き場です",
+  DESCRIPTION: "harumaki021がこれまで作ったりしたものたちの置き場です",
 };
 
 export const ABOUT: Metadata = {
   TITLE: "About",
-  DESCRIPTION:
-    "harumaki021の説明と、各種SNSへのリンクです",
+  DESCRIPTION: "harumaki021の説明と、各種SNSへのリンクです",
 };
 
 export const SOCIALS: Socials = [
@@ -89,11 +88,11 @@ export const SNSLINKS: Snslinks = [
   {
     NAME: "Twitch",
     HREF: "https://twitch.tv/harumaki021",
-    DESCRIPTION: "ゲームと運動する様を配信します"
+    DESCRIPTION: "ゲームと運動する様を配信します",
   },
   {
     NAME: "YouTube",
     HREF: " http://www.youtube.com/@harumaki-zaemon",
-    DESCRIPTION: "動画の置き場"
+    DESCRIPTION: "動画の置き場",
   },
 ];

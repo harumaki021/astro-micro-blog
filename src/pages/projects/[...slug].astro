@@ -26,13 +26,18 @@ const { Content, headings } = await project.render();
 import {
   FacebookShareButton,
   TwitterShareButton,
-  SocialShare
+  SocialShare,
 } from "astro-social-share";
 
 import MastodonShareButton from "@components/MastodonShare.astro";
 import MisskeyShareButton from "@components/MisskeyShare.astro";
 
-const BUTTONS = [MastodonShareButton, MisskeyShareButton, TwitterShareButton, FacebookShareButton,]
+const BUTTONS = [
+  MastodonShareButton,
+  MisskeyShareButton,
+  TwitterShareButton,
+  FacebookShareButton,
+];
 ---
 
 <Layout title={project.data.title} description={project.data.description}>
@@ -75,10 +80,8 @@ const BUTTONS = [MastodonShareButton, MisskeyShareButton, TwitterShareButton, Fa
     <article class="animate">
       <Content />
       <div class="mt-8">
-        <SocialShare
-        buttons={BUTTONS}
-        description={project.data.title}
-        />
+        <SocialShare buttons={BUTTONS} description={project.data.title} />
+      </div>
     </article>
   </Container>
 </Layout>

@@ -54,14 +54,19 @@ const { Content, headings } = await post.render();
 import {
   FacebookShareButton,
   TwitterShareButton,
-  SocialShare
+  SocialShare,
 } from "astro-social-share";
 
 import MastodonShareButton from "@components/MastodonShare.astro";
 import MisskeyShareButton from "@components/MisskeyShare.astro";
 import Link from "@components/Link.astro";
 
-const BUTTONS = [MastodonShareButton, MisskeyShareButton, TwitterShareButton, FacebookShareButton,]
+const BUTTONS = [
+  MastodonShareButton,
+  MisskeyShareButton,
+  TwitterShareButton,
+  FacebookShareButton,
+];
 ---
 
 <Layout title={post.data.title} description={post.data.description}>
@@ -89,12 +94,14 @@ const BUTTONS = [MastodonShareButton, MisskeyShareButton, TwitterShareButton, Fa
       </div>
       <div class="max-w-md pt-2">
         <ul class="flex flex-wrap items-center gap-x-3 gap-y-2 text-sm">
-          {post.data.tags.map((tag) => (
-            <li>
-            <div class="grayscale inline-block">&#127991;</div>
-            <Link href={`/tags/${tag}`}>{tag}</Link>
-            </li>
-          ))}
+          {
+            post.data.tags.map((tag) => (
+              <li>
+                <div class="inline-block grayscale">&#127991;</div>
+                <Link href={`/tags/${tag}`}>{tag}</Link>
+              </li>
+            ))
+          }
         </ul>
       </div>
     </div>
@@ -102,10 +109,7 @@ const BUTTONS = [MastodonShareButton, MisskeyShareButton, TwitterShareButton, Fa
     <article class="animate">
       <Content />
       <div class="mt-8">
-        <SocialShare
-        buttons={BUTTONS}
-        description={post.data.title}
-        />
+        <SocialShare buttons={BUTTONS} description={post.data.title} />
       </div>
       <div class="mt-8">
         <PostNavigation prevPost={prevPost} nextPost={nextPost} />

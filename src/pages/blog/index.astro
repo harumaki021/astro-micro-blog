@@ -15,8 +15,8 @@ type Acc = {
 
 const posts = data.reduce((acc: Acc, post) => {
   const date = new Date(post.data.date);
-  const yearMonth = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}`;
-  
+  const yearMonth = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}`;
+
   if (!acc[yearMonth]) {
     acc[yearMonth] = [];
   }
@@ -38,9 +38,7 @@ const years = Object.keys(posts).sort((a, b) => parseInt(b) - parseInt(a));
           {
             years.map((yearMonth) => (
               <section class="animate space-y-4">
-                <div class="text-black dark:text-white">
-                  {yearMonth}
-                </div>
+                <div class="text-black dark:text-white">{yearMonth}</div>
                 <div>
                   <ul class="not-prose flex flex-col gap-4">
                     {posts[yearMonth].map((post) => (

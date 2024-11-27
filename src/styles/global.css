@@ -126,22 +126,22 @@ pre {
 }
 
 /* Style the figcaptures from rehype-figure */
-figcaption{
+figcaption {
   @apply text-center;
 }
 
-figure{
-  @apply my-auto
-}
+/* figure {
+  @apply my-auto;
+} */
 
 /* Style the Twemoji */
 img.emoji {
   height: 1em;
   width: 1em;
-  @apply inline-block mx-0.5 align-text-bottom ;
+  @apply mx-0.5 inline-block align-text-bottom;
 }
 
 /* Astro Social Share */
-.astro-social-share{
+.astro-social-share {
   @apply dark:fill-neutral-100;
 }
