@@ -130,9 +130,9 @@ figcaption {
   @apply text-center;
 }
 
-figure {
+/* figure {
   @apply my-auto;
-}
+} */
 
 /* Style the Twemoji */
 img.emoji {
