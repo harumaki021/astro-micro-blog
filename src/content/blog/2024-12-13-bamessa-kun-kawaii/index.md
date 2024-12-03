@@ -21,6 +21,8 @@ import Fig from "@components/Figcaption.astro";
 >
 > [顔良 - Wikipedia](https://ja.wikipedia.org/wiki/%E9%A1%94%E8%89%AF)
 
+このブログは [Resonite Advent Calender 2024](https://adventar.org/calendars/10543) の記事です。
+
 ### バメッサくんとは
 
 ### Resonite版バメッサくんについて
