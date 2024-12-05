@@ -2,7 +2,7 @@
 title: スト6はじめます
 description: 対戦格ゲーやりこんだことない初心者がどこまでいけるかという壮大な社会実験
 date: 2024-11-26
-draft: false
+draft: true
 tags: ["blog", "game", "スト6"]
 ---
 
