@@ -2,7 +2,7 @@
 title: Resoniteで改変したバメッサくん見て【Resonite Advent Calender2024】
 description: バメッサくんのここ好きポイントと改変についてのあれこれを語って、Resoniteでバメッサくん使う人たくさん増えてくれんかなあという記事です。
 date: 2024-12-13
-draft: false
+draft: true
 tags: ["blog", "Resonite", "アバター", "bamessa"]
 ---
 
@@ -337,8 +337,8 @@ Unity上でアバターと衣装をインポート
 
 バメッサくんの表情のうち、smile01、sad01やsleepなど、目が閉じている表情とまばたきが干渉しておかしくなるのを治す方法です。
 
-べるネさんのWiki見てね
+@@べるネさんのWiki見てね@@
 
 ### オマケ3-FBT時に自分視点で首が長く見える（他ユーザーからは普通に見える）ケースの対処
 
-べるネさんのWiki見てね
+@@べるネさんのWiki見てね@@
