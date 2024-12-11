@@ -2,7 +2,7 @@
 title: Resoniteで改変したバメッサくん見て【Resonite Advent Calender2024】
 description: バメッサくんのここ好きポイントと改変についてのあれこれを語って、Resoniteでバメッサくん使う人たくさん増えてくれんかなあという記事です。
 date: 2024-12-13
-draft: true
+draft: false
 tags: ["blog", "Resonite", "アバター", "bamessa"]
 ---
 
