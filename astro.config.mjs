@@ -9,7 +9,7 @@ import rehypeFigure from "@microflash/rehype-figure";
 // https://astro.build/config
 export default defineConfig({
   site: "https://harumakizaemon.net",
-  integrations: [tailwind(), sitemap(), mdx(), pagefind()],
+  integrations: [tailwind(), sitemap(), embeds(), mdx(), pagefind()],
   markdown: {
     shikiConfig: {
       theme: "css-variables",
