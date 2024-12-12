@@ -12,6 +12,7 @@
     "format:fix": "prettier --write \"**/*.{astro,,css,ts,tsx,js,jsx,cjs,mjs,md,mdx,json,lintstagedrc}\""
   },
   "dependencies": {
+    "@astro-community/astro-embed-youtube": "^0.5.6",
     "@astrojs/check": "^0.9.3",
     "@astrojs/mdx": "^3.1.7",
     "@astrojs/rss": "^4.0.7",
