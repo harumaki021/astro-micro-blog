@@ -1,8 +1,8 @@
 ---
 title: Resoniteグッズあれこれ
-description: 説明
+description: kakikake
 date: 2025-04-15
-draft: false
+draft: true
 tags: ["blog","Resonite"]
 ---
 
