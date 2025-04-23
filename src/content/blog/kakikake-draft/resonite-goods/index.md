@@ -2,7 +2,7 @@
 title: Resoniteグッズあれこれ
 description: kakikake
 date: 2025-04-15
-draft: true
+draft: false
 tags: ["blog","Resonite"]
 ---
 
