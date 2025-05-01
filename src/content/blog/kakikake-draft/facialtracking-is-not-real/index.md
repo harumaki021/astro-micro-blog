@@ -2,7 +2,7 @@
 title: facial-tracking
 description: 説明
 date: 2025-04-17
-draft: false
+draft: true
 tags: ["blog"]
 ---
 

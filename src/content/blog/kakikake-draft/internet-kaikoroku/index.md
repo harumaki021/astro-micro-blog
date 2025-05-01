@@ -2,7 +2,7 @@
 title: インターネット回顧録
 description: neko
 date: 2025-04-23
-draft: false
+draft: true
 tags: ["blog"]
 ---
 
