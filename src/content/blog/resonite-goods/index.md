@@ -1,5 +1,5 @@
 ---
-title: Resoniteグッズあれこれ
+title: Resoniteグッズ通販をながめてあーだこーだ書くだけ
 description: オタクはすぐにグッズが欲しくなっちゃう生きものなの
 date: 2025-05-01
 draft: false
@@ -66,11 +66,15 @@ tags: ["blog","Resonite"]
   - 「Chef froox」開発者のFrooxiusさんの名前が入っている
 - ペット用のごはん皿
   - なにこれ？
-  - メンターマークがついてるバージョンもある、なんなんだ
+  - メンターマークがついてるバージョンもある、なんなんだこれ（困惑）
 
 ## WeaverseLabから公認グッズも出た
+
+[WeaverseLabのオリジナルグッズ・アイテム通販 ∞ SUZURI（スズリ）](https://suzuri.jp/WeaverseLab)
+
 - Resoniteの日本代理店WeaversLabでもResoniteグッズの販売を開始
   - suzuriで購入できる。国内通販
+  - 「Resonite」で検索しても出てこない（なんでだろう）
 - 現在の取り扱いはTシャツ、サコッシュ、マスク、クッションなど
 - デザイン一般公募企画もやるらしい
   - Resonite公式に確認をとったうえで、公認グッズとして販売されるとのこと
