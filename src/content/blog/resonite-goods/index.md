@@ -3,7 +3,7 @@ title: Resoniteグッズ通販をながめてあーだこーだ書くだけ
 description: オタクはすぐにグッズが欲しくなっちゃう生きものなの
 date: 2025-05-01
 draft: false
-tags: ["blog","Resonite"]
+tags: ["blog","レビュー","Resonite"]
 ---
 
 この記事は書きかけです。
