@@ -16,6 +16,6 @@ export function formatDate(date: Date) {
 export function readingTime(html: string) {
   const textOnly = html.replace(/<[^>]+>/g, "");
   const charCount = textOnly.length;
-  const readingTimeMinutes = (charCount / 600 + 1).toFixed();
+  const readingTimeMinutes = (charCount / 650 + 1).toFixed();
   return `${readingTimeMinutes} 分くらいで読めます`;
 }
