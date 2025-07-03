@@ -3,7 +3,7 @@ title: Uni-motionはいいぞ（令和最新版）
 description: 購入してから2年半くらい経っての感想とか最近どうよって話
 date: 2024-10-27
 draft: false
-tags: ["VR", "Uni-motion"]
+tags: ["VR", "レビュー","Uni-motion"]
 ---
 
 ## Uni-motion使ってます
