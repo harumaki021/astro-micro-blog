@@ -18,5 +18,58 @@ const embedId = `v1_${UUID}`;
     referrerpolicy="strict-origin-when-cross-origin"
     style="border: none; width: 100%; max-width: 500px; height: 300px; color-scheme: light dark;"
   ></iframe>
-  <script is:inline defer src="https://mi.harumakizaemon.net/embed.js"></script>
+  <script is:inline>
+    (() => {
+      if (window.__misskeyEmbedScriptInitialized) return;
+      window.__misskeyEmbedScriptInitialized = true;
+
+      function registerAllMisskeyIframes() {
+        const iframes = document.querySelectorAll("iframe[data-misskey-embed-id]");
+        iframes.forEach((iframe) => {
+          const id = iframe.getAttribute("data-misskey-embed-id");
+          if (id && iframe.contentWindow) {
+            iframe.contentWindow.postMessage(
+              {
+                type: "misskey:embedParent:registerIframeId",
+                payload: { iframeId: id },
+              },
+              "*"
+            );
+          }
+        });
+      }
+
+      window.addEventListener("message", (event) => {
+        if (!event.data || typeof event.data !== "object") return;
+
+        if (event.data.type === "misskey:embed:ready") {
+          const iframes = document.querySelectorAll("iframe[data-misskey-embed-id]");
+          iframes.forEach((iframe) => {
+            if (event.source === iframe.contentWindow) {
+              const id = iframe.getAttribute("data-misskey-embed-id");
+              iframe.contentWindow?.postMessage(
+                {
+                  type: "misskey:embedParent:registerIframeId",
+                  payload: { iframeId: id },
+                },
+                "*"
+              );
+            }
+          });
+        }
+
+        if (event.data.type === "misskey:embed:changeHeight" && event.data.iframeId) {
+          const target = document.querySelector(
+            `iframe[data-misskey-embed-id="${event.data.iframeId}"]`
+          );
+          if (target && event.data.payload && typeof event.data.payload.height === "number") {
+            target.style.height = `${event.data.payload.height}px`;
+          }
+        }
+      });
+
+      document.addEventListener("DOMContentLoaded", registerAllMisskeyIframes);
+      document.addEventListener("astro:page-load", registerAllMisskeyIframes);
+    })();
+  </script>
 </div>
