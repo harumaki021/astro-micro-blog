@@ -29,26 +29,15 @@ function buildToc(headings: Heading[]) {
 
 <details
   open
-  class="animate rounded-lg border border-black/15 dark:border-white/20"
+  class="animate group rounded-lg border border-black/15 dark:border-white/20"
 >
-  <summary>目次</summary>
+  <summary
+    class="cursor-pointer rounded-t-lg px-3 py-1.5 font-medium transition-colors group-open:bg-black/5 hover:bg-black/5 dark:group-open:bg-white/5 hover:dark:bg-white/5"
+    >目次</summary
+  >
   <nav class="">
     <ul class="py-2">
       {toc.map((heading) => <TableOfContentsHeading heading={heading} />)}
     </ul>
   </nav>
 </details>
-
-<style>
-  summary {
-    @apply cursor-pointer rounded-t-lg px-3 py-1.5 font-medium transition-colors;
-  }
-
-  summary:hover {
-    @apply bg-black/5 dark:bg-white/5;
-  }
-
-  details[open] summary {
-    @apply bg-black/5 dark:bg-white/5;
-  }
-</style>
