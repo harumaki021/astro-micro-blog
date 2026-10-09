@@ -1,51 +1,73 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-html {
-  overflow-y: auto;
-  color-scheme: light;
-  scroll-padding-top: 100px;
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --font-sans: "ヒラギノ丸ゴ ProN", "Hiragino Maru Gothic ProN", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "BIZ UDPGothic", "Helvetica Neue", Geist Sans, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-mono: "M PLUS 1 Code Variable", Geist Mono, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
-html.dark {
-  color-scheme: dark;
-}
-
-html,
-body {
-  @apply size-full;
-}
-
-body {
-  @apply font-sans antialiased;
-  @apply flex flex-col;
-  @apply bg-neutral-100 dark:bg-neutral-900;
-  @apply text-black/75 dark:text-white/75;
-}
-
-header {
-  @apply fixed left-0 right-0 top-0 z-50 py-6;
-  @apply bg-neutral-100/75 dark:bg-neutral-900/75;
-  @apply saturate-200 backdrop-blur-sm;
-}
-
-main {
-  @apply flex-1 py-32;
-}
-
-footer {
-  @apply py-6 text-sm;
-}
-
-article {
-  @apply prose prose-neutral max-w-full dark:prose-invert prose-img:mx-auto prose-img:my-auto;
-  @apply prose-headings:font-semibold;
-  @apply prose-headings:text-black prose-headings:dark:text-white;
-  line-break: strict;
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
 }
 
 @layer utilities {
+  html {
+    overflow-y: auto;
+    color-scheme: light;
+    scroll-padding-top: 100px;
+  }
+
+  html.dark {
+    color-scheme: dark;
+  }
+
+  html,
+  body {
+    @apply size-full;
+  }
+
+  body {
+    @apply font-sans antialiased;
+    @apply flex flex-col;
+    @apply bg-neutral-100 dark:bg-neutral-900;
+    @apply text-black/75 dark:text-white/75;
+  }
+
+  header {
+    @apply fixed left-0 right-0 top-0 z-50 py-6;
+    @apply bg-neutral-100/75 dark:bg-neutral-900/75;
+    @apply saturate-200 backdrop-blur-xs;
+  }
+
+  main {
+    @apply flex-1 py-32;
+  }
+
+  footer {
+    @apply py-6 text-sm;
+  }
+
+  article {
+    @apply prose prose-neutral max-w-full dark:prose-invert prose-img:mx-auto prose-img:my-auto;
+    @apply prose-headings:font-semibold;
+    @apply prose-headings:text-black dark:prose-headings:text-white;
+    line-break: strict;
+  }
+
   article a {
     @apply font-sans text-current underline underline-offset-[3px];
     @apply decoration-black/30 dark:decoration-white/30;
@@ -80,8 +102,8 @@ pre {
 }
 
 :root {
-  --astro-code-color-text: #09090b;
-  --astro-code-color-background: #fafafa;
+  --astro-code-foreground: #09090b;
+  --astro-code-background: #fafafa;
   --astro-code-token-comment: #a19595;
   --astro-code-token-keyword: #f47067;
   --astro-code-token-string: #00a99a;
@@ -94,8 +116,8 @@ pre {
 }
 
 .dark {
-  --astro-code-color-text: #fafafa;
-  --astro-code-color-background: #09090b;
+  --astro-code-foreground: #fafafa;
+  --astro-code-background: #09090b;
   --astro-code-token-comment: #a19595;
   --astro-code-token-keyword: #f47067;
   --astro-code-token-string: #00a99a;
@@ -109,7 +131,7 @@ pre {
 
 /* copy code button on codeblocks */
 .copy-code {
-  @apply absolute right-3 top-3 grid size-9 place-content-center rounded border border-black/15 bg-neutral-100 text-center duration-300 ease-in-out dark:border-white/20 dark:bg-neutral-900;
+  @apply absolute right-3 top-3 grid size-9 place-content-center rounded-sm border border-black/15 bg-neutral-100 text-center duration-300 ease-in-out dark:border-white/20 dark:bg-neutral-900;
 }
 
 .copy-code:hover {
@@ -129,10 +151,6 @@ pre {
 figcaption {
   @apply text-center;
 }
-
-/* figure {
-  @apply my-auto;
-} */
 
 /* Style the Twemoji */
 img.emoji {

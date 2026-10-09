@@ -1,6 +1,6 @@
 ---
 import "../styles/global.css";
-import { ViewTransitions } from "astro:transitions";
+import { ClientRouter } from "astro:transitions";
 
 interface Props {
   title: string;
@@ -60,7 +60,7 @@ const { title, description, image = "/placeholder.jpg" } = Astro.props;
   src="https://cdn.jsdelivr.net/npm/@twemoji/api@latest/dist/twemoji.min.js"
   crossorigin="anonymous"></script>
 
-<ViewTransitions />
+<ClientRouter />
 
 <script is:inline>
   function init() {

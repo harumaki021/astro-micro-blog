@@ -24,10 +24,12 @@ const interests = [
 const specificSlug = "lovot-konatsu"; // ここに特定のスラッグを指定
 const projects: CollectionEntry<"projects">[] = (
   await getCollection("projects")
-).filter((project) => project.slug === specificSlug);
+).filter((project) => project.id === specificSlug);
 ---
 
 <style>
+  @reference "../../styles/global.css";
+
   h1 {
     @apply font-semibold text-black dark:text-white;
   }

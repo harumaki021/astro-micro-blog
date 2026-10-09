@@ -1,5 +1,5 @@
 ---
-import { type CollectionEntry, getCollection } from "astro:content";
+import { type CollectionEntry, getCollection, render } from "astro:content";
 import Layout from "@layouts/Layout.astro";
 import Container from "@components/Container.astro";
 import FormattedDate from "@components/FormattedDate.astro";
@@ -14,7 +14,7 @@ export async function getStaticPaths() {
     .filter((post) => !post.data.draft)
     .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
   return posts.map((post) => ({
-    params: { slug: post.slug },
+    params: { id: post.id },
     props: post,
   }));
 }
@@ -27,7 +27,7 @@ const posts = (await getCollection("blog"))
 function getNextPost() {
   let postIndex;
   for (const post of posts) {
-    if (post.slug === Astro.params.slug) {
+    if (post.id === Astro.params.id) {
       postIndex = posts.indexOf(post);
       return posts[postIndex + 1];
     }
@@ -37,7 +37,7 @@ function getNextPost() {
 function getPrevPost() {
   let postIndex;
   for (const post of posts) {
-    if (post.slug === Astro.params.slug) {
+    if (post.id === Astro.params.id) {
       postIndex = posts.indexOf(post);
       return posts[postIndex - 1];
     }
@@ -48,7 +48,7 @@ const nextPost = getNextPost();
 const prevPost = getPrevPost();
 
 const post = Astro.props;
-const { Content, headings } = await post.render();
+const { Content, headings } = await render(post);
 
 // Astro Social Share
 import {
@@ -80,9 +80,13 @@ const BUTTONS = [
           <FormattedDate date={post.data.date} />
         </div>
         &bull;
-        <div class="font-base text-sm">
-          {readingTime(post.body)}
-        </div>
+        {
+          post.body && (
+            <div class="font-base text-sm">
+              {readingTime(post.body)}
+            </div>
+          )
+        }
       </div>
       <h1 class="text-3xl font-semibold text-black dark:text-white">
         {post.data.title}
@@ -92,18 +96,20 @@ const BUTTONS = [
           {post.data.description}
         </span>
       </div>
-      <div class="max-w-md pt-2">
-        <ul class="flex flex-wrap items-center gap-x-3 gap-y-2 text-sm">
-          {
-            post.data.tags.map((tag) => (
-              <li>
-                <div class="inline-block grayscale">&#127991;</div>
-                <Link href={`/tags/${tag}`}>{tag}</Link>
-              </li>
-            ))
-          }
-        </ul>
-      </div>
+      {
+        post.data.tags && post.data.tags.length > 0 && (
+          <div class="max-w-md pt-2">
+            <ul class="flex flex-wrap items-center gap-x-3 gap-y-2 text-sm">
+              {post.data.tags.map((tag) => (
+                <li>
+                  <div class="inline-block grayscale">&#127991;</div>
+                  <Link href={`/tags/${tag}`}>{tag}</Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )
+      }
     </div>
     {headings.length > 0 && <TableOfContents headings={headings} />}
     <article class="animate">
@@ -120,3 +126,4 @@ const BUTTONS = [
     </article>
   </Container>
 </Layout>
+
