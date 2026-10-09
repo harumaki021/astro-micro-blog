@@ -12,21 +12,9 @@ export default defineConfig({
   compressHTML: true,
   integrations: [sitemap(), mdx(), pagefind()],
   vite: {
-    ssr: {
-      external: ["yaml", "source-map-js"],
-    },
     plugins: [tailwindcss()],
   },
   markdown: {
-    shikiConfig: {
-      theme: "css-variables",
-    },
-    remarkRehype: {
-      footnoteLabel: " ",
-      footnoteLabelProperties: { className: [""] },
-      footnoteLabelTagName: "hr",
-    },
-    rehypePlugins: [rehypeFigure],
     processor: unified({
       shikiConfig: {
         theme: "css-variables",
